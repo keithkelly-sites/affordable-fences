@@ -1,0 +1,140 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const styles = [
+  { name: 'Ashbery I Picket Fence', type: 'Picket', image: '/images/ashbery-i-picket-fence-1920w.jpg' },
+  { name: 'Ashbery II Picket Fence', type: 'Picket', image: '/images/ashbery-ii-picket-fence-1920w.jpg' },
+  { name: 'Ashbery IV Picket Fence', type: 'Picket', image: '/images/ashbery-iv-picket-fence-1920w.jpg' },
+  { name: 'Ashbery V Picket Fence', type: 'Picket', image: '/images/ashbery-v-picket-fence-1920w.jpg' },
+  { name: 'Melville Picket Fence', type: 'Picket', image: '/images/melville-picket-fence-1920w.jpg' },
+  { name: 'Tahoe III Privacy Fence', type: 'Privacy', image: '/images/tahoe-iii-privacy-fence-1920w.jpg' },
+  { name: 'Tahoe Privacy Fence', type: 'Privacy', image: '/images/tahoe-privacy-fence-1920w.jpg' },
+];
+
+const benefits = [
+  { title: 'Strong & Durable', description: 'Vinyl is five times stronger than wood, built to withstand heavy use and wear.' },
+  { title: 'Low Maintenance', description: 'Retains color and shape over time. No painting, staining, or sealing needed.' },
+  { title: 'Affordable', description: 'Save money at installation and throughout the life of your fence.' },
+  { title: 'Easy Installation', description: 'Our team can add vinyl fencing to your property quickly and efficiently.' },
+  { title: 'Privacy Options', description: 'Choose from picket or privacy styles to get the look and function you need.' },
+  { title: 'Weather Resistant', description: 'Withstands heat, rain, and cold. A solid choice for Pittsburgh weather.' },
+];
+---
+
+<Layout
+  title="Vinyl Fence Installation - Affordable Fence & Railing, LLC"
+  description="High-quality vinyl fence installations in Pittsburgh, PA and surrounding areas. Five times stronger than wood. Picket and privacy styles available. Free estimates."
+>
+  <!-- Hero -->
+  <section class="bg-muted py-20 md:py-28">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+      <div class="max-w-2xl">
+        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-3">Our Products</p>
+        <h1>Vinyl Fence Installations in Pittsburgh, PA</h1>
+        <p class="text-foreground/70 text-lg mt-6 leading-relaxed">
+          Affordable Fence & Railing fabricates vinyl using various high-quality products. We carry vinyl picket and privacy fence systems in various styles and sizes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="py-20 md:py-24">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="mb-6">Why Vinyl Fencing?</h2>
+          <p class="text-foreground/70 leading-relaxed mb-4">
+            Vinyl fencing is one of the most durable varieties of fencing. Compared to wood fencing, vinyl is five times stronger. The added strength ensures that it is longer-lasting and withstands wear and tear.
+          </p>
+          <p class="text-foreground/70 leading-relaxed mb-4">
+            Vinyl is also easy to install, which aids our team's commitment to prompt service. We can quickly and efficiently add the fence you are looking for to your property.
+          </p>
+          <p class="text-foreground/70 leading-relaxed mb-4">
+            Vinyl fence panels save you money throughout the fence's life because they retain their color and shape. Vinyl withstands shifts in weather and is a great choice for areas that have both high heat and heavy rainstorms.
+          </p>
+          <p class="text-foreground/70 leading-relaxed">
+            We can customize the spacing between vinyl at our company to achieve the look you want.
+          </p>
+        </div>
+        <div>
+          <img
+            src="/images/img_2041-640w-1920w.webp"
+            alt="Beautiful Clean White Fence"
+            class="rounded-lg w-full"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Styles Gallery -->
+  <section class="bg-muted py-20 md:py-24">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+      <div class="max-w-xl mb-14">
+        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-2">Vinyl Fence Styles</p>
+        <h2>Our Most Popular Styles</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {styles.map(style => (
+          <div class="bg-background rounded-lg overflow-hidden border border-border">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img
+                src={style.image}
+                alt={style.name}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-5 border-t-2 border-primary/20">
+              <h3 class="text-base">{style.name}</h3>
+              <span class="text-xs font-medium text-muted-foreground uppercase tracking-wider">{style.type} Style</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="py-20 md:py-24">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+      <div class="max-w-xl mb-14">
+        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-2">Benefits</p>
+        <h2>Why Choose Vinyl Fence</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {benefits.map((benefit, i) => (
+          <div class="flex gap-4">
+            <span class="text-3xl font-display font-bold text-primary/20 leading-none">{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <h3 class="text-base mb-2">{benefit.title}</h3>
+              <p class="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-primary/5 py-20 md:py-24">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-12 text-center">
+      <h2 class="mb-4">Get a Vinyl Fence for Your Property</h2>
+      <p class="text-muted-foreground max-w-xl mx-auto mb-8">
+        Call us today in Pittsburgh, PA, for a free estimate on vinyl fence installation.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="inline-flex items-center justify-center px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-full text-sm">
+          Request a Free Estimate
+        </a>
+        <a href="tel:412-766-1464" class="inline-flex items-center justify-center px-8 py-3.5 border-2 border-primary/30 text-primary font-semibold rounded-full text-sm">
+          Call 412-766-1464
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

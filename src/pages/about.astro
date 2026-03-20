@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="About Us - Affordable Fence & Railing, LLC"
+  description="Locally owned fence and railing company serving Pittsburgh and surrounding counties for over 30 years. Fully licensed and insured. Specializing in vinyl, aluminum, and chain link fence installation."
+>
+  <!-- Hero -->
+  <section class="bg-muted py-20 md:py-28">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+      <div class="max-w-2xl">
+        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-3">About Us</p>
+        <h1>Trusted Fence & Railing Installer in Pittsburgh, PA</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-20 md:py-24">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-16">
+        <div class="lg:col-span-3">
+          <p class="text-lg text-foreground/80 leading-relaxed mb-6">
+            At Affordable Fence & Railing, we provide affordable residential fence installation and fabrication to meet your project's needs. We use only high-quality fence products to leave you with long-lasting results.
+          </p>
+          <p class="text-foreground/70 leading-relaxed mb-6">
+            Affordable Fence & Railing, LLC is a locally owned, full-service fence and railing company that has served Pittsburgh and nearby Allegheny, Butler, Beaver, Westmoreland, and Washington counties for over 30 years. We are fully licensed and insured, so rest easy knowing that your property is in safe, capable hands. Our mission is to provide you with great products at very affordable prices, and we pride ourselves on the fabrication of quality vinyl and aluminum fence material.
+          </p>
+          <p class="text-foreground/70 leading-relaxed mb-8">
+            Affordable Fence & Railing installs fencing of various types, including aluminum, vinyl, and chain link. We will complete your project safely, and within the guidelines established by local building codes, so your new fence or railing project will look great on your property without violating any regulations.
+          </p>
+
+          <div class="border-t border-border pt-8">
+            <h2 class="mb-6">What We Install</h2>
+            <p class="text-foreground/70 leading-relaxed mb-6">
+              We provide tailored fencing installation services and products to suit your home's unique needs. We install various styles of fences made of:
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <a href="/vinyl-fences" class="group p-5 bg-muted rounded-lg border-t-2 border-primary/30 hover:border-primary">
+                <h3 class="text-base mb-1 group-hover:text-primary">Vinyl</h3>
+                <p class="text-muted-foreground text-sm">Picket & privacy styles</p>
+              </a>
+              <a href="/aluminum-fences" class="group p-5 bg-muted rounded-lg border-t-2 border-primary/30 hover:border-primary">
+                <h3 class="text-base mb-1 group-hover:text-primary">Aluminum</h3>
+                <p class="text-muted-foreground text-sm">Residential & commercial</p>
+              </a>
+              <a href="/chain-link" class="group p-5 bg-muted rounded-lg border-t-2 border-primary/30 hover:border-primary">
+                <h3 class="text-base mb-1 group-hover:text-primary">Chain Link</h3>
+                <p class="text-muted-foreground text-sm">Galvanized & vinyl-coated</p>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2">
+          <div class="sticky top-24">
+            <img
+              src="/images/img_2049-640w-1920w.webp"
+              alt="White Fence with Nice Design"
+              class="rounded-lg w-full mb-6"
+              loading="lazy"
+            />
+
+            <div class="bg-primary/5 rounded-lg p-6 mb-6">
+              <h3 class="text-base mb-4">Business Details</h3>
+              <div class="flex flex-col gap-3 text-sm">
+                <div class="flex justify-between">
+                  <span class="text-muted-foreground">Phone</span>
+                  <a href="tel:412-766-1464" class="font-medium text-primary">412-766-1464</a>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-muted-foreground">Email</span>
+                  <a href="mailto:carol@affordable-fences.com" class="font-medium text-primary">carol@affordable-fences.com</a>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-muted-foreground">Fax</span>
+                  <span class="font-medium">412-230-8654</span>
+                </div>
+                <div class="border-t border-border pt-3 mt-1">
+                  <span class="text-muted-foreground">Address</span>
+                  <p class="font-medium mt-1">309 Camp Horne Road<br />Pittsburgh, PA 15202</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-muted rounded-lg p-6">
+              <h3 class="text-base mb-3">Additional Services</h3>
+              <ul class="text-sm text-foreground/70 flex flex-col gap-2">
+                <li>DIY vinyl & aluminum fence materials for sale</li>
+                <li>Custom fence fabrication</li>
+                <li>VEKA vinyl decking</li>
+                <li>Financing available for installation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Area -->
+  <section class="bg-muted py-20 md:py-24">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+      <h2 class="mb-6">Our Service Area</h2>
+      <p class="text-foreground/70 max-w-2xl leading-relaxed mb-8">
+        We serve homeowners across the greater Pittsburgh area, including Allegheny, Butler, Beaver, Westmoreland, and Washington counties.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        {['Pittsburgh, PA', 'Sewickley, PA', 'Cranberry Township, PA', 'Moon Township, PA', 'Wexford, PA', 'Canonsburg, PA', 'Allegheny County', 'Butler County', 'Beaver County', 'Westmoreland County', 'Washington County'].map(area => (
+          <span class="px-4 py-2 bg-background border border-border rounded-full text-sm text-foreground/80">{area}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 md:py-24">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-12 text-center">
+      <h2 class="mb-4">Ready to Get Started?</h2>
+      <p class="text-muted-foreground max-w-xl mx-auto mb-8">
+        Call our team today in Pittsburgh, PA, for a free estimate for all of your fence and railing needs.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="inline-flex items-center justify-center px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-full text-sm">
+          Request a Free Estimate
+        </a>
+        <a href="tel:412-766-1464" class="inline-flex items-center justify-center px-8 py-3.5 border-2 border-primary/30 text-primary font-semibold rounded-full text-sm">
+          Call 412-766-1464
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

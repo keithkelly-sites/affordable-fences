@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const galleryImages = [
+  { file: 'img_2286-640w-1920w.webp', alt: 'White Fence in a Lawn' },
+  { file: 'img_2043-640w-1920w.webp', alt: 'Green Yard with White Fence' },
+  { file: 'img_2047-640w-1920w.webp', alt: 'Fence Made of Steel' },
+  { file: 'img_2049-640w-1920w.webp', alt: 'White Fence with Nice Design' },
+  { file: 'img_2044-640w-1920w.webp', alt: 'Corner of a White Fence' },
+  { file: 'img_2119-640w-1920w.webp', alt: 'Black Fence and Gate of a House' },
+  { file: '517-640w-1920w.webp', alt: 'Porch with White Fence' },
+  { file: '505-640w-1920w.webp', alt: 'Black Painted Aluminum Fence' },
+  { file: '475-640w-1920w.webp', alt: 'Vinyl Pool Fence' },
+  { file: '837-640w-1920w.webp', alt: 'White Vinyl Fence' },
+  { file: '835-640w-1920w.webp', alt: 'Brown Fence' },
+  { file: 'img_1177-640w-1920w.webp', alt: 'Brown Vinyl Fence' },
+  { file: 'img_2030-640w-1920w.webp', alt: 'Aluminum Picket Fences' },
+  { file: 'img_2033-640w-1920w.webp', alt: 'Residential Aluminum Railing' },
+  { file: 'img_2035-640w-1920w.webp', alt: 'Black Vinyl Chain Link Fence' },
+  { file: 'img_2036-640w-1920w.webp', alt: 'Aluminum Fence Around Pool' },
+  { file: 'img_2037-640w-1920w.webp', alt: 'Pool Fence Rail' },
+  { file: 'img_2041-640w-1920w.webp', alt: 'Beautiful Clean White Fence' },
+  { file: 'img_2042-640w-1920w.webp', alt: 'White Fence Installed in Backyard' },
+  { file: 'img_2046-640w-1920w.webp', alt: 'White Wood Fence in the Backyard' },
+  { file: 'img_2117-640w-1920w.webp', alt: 'Black Metal Railing For Stairs' },
+  { file: 'img_2040-640w-1920w.webp', alt: 'Newly Installed Long White Fence' },
+  { file: 'img_2025-640w-1920w.webp', alt: 'White Fence' },
+  { file: 'img_2027-640w-1920w.jpg', alt: 'Black Fence' },
+  { file: 'img_2045-640w-1920w.webp', alt: 'High White Fence' },
+  { file: 'img_2029-640w-1920w.webp', alt: 'Fence Properly Built Beside House' },
+  { file: 'img_1176-640w-1920w.webp', alt: 'Vinyl Fence Installation' },
+  { file: 'img_2038-640w-1920w.webp', alt: 'Fence Installation' },
+  { file: 'img_2032-640w-1920w.webp', alt: 'Fence Project' },
+  { file: 'img_2026-640w-1920w.webp', alt: 'Fence Project' },
+  { file: 'img_2039-640w-1920w.webp', alt: 'Fence Project' },
+  { file: 'img_1956-640w-1920w.webp', alt: 'Fence Project' },
+  { file: 'img_1957-copy-640w-1920w.webp', alt: 'Fence Project' },
+  { file: 'img_2285-640w-1920w.webp', alt: 'Small Wood Fence Near Road' },
+  { file: 'img_2047-3bfaec41-640w-1920w.webp', alt: 'Steel Fence on Uneven Ground' },
+  { file: '859-640w-1920w.webp', alt: 'Vinyl Column' },
+];
+---
+
+<Layout
+  title="Gallery - Affordable Fence & Railing, LLC"
+  description="Browse completed fence and railing projects by Affordable Fence & Railing in Pittsburgh, PA. Vinyl, aluminum, chain link fences and railing installations."
+>
+  <!-- Hero -->
+  <section class="bg-muted py-20 md:py-28">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+      <div class="max-w-2xl">
+        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-3">Our Work</p>
+        <h1>Completed Projects</h1>
+        <p class="text-foreground/70 text-lg mt-6 leading-relaxed">
+          Browse through some of our completed fence and railing installations across Pittsburgh and surrounding areas.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="py-20 md:py-24">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+      <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+        {galleryImages.map(img => (
+          <div class="break-inside-avoid rounded-lg overflow-hidden border border-border">
+            <img
+              src={`/images/${img.file}`}
+              alt={img.alt}
+              class="w-full h-auto"
+              loading="lazy"
+            />
+            <div class="px-4 py-3 bg-background">
+              <p class="text-xs text-muted-foreground">{img.alt}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-foreground py-20 md:py-24">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-12 text-center">
+      <h2 class="text-background mb-4">Like What You See?</h2>
+      <p class="text-background/60 max-w-xl mx-auto mb-8">
+        Call us today for a free estimate and let us build the fence or railing your property needs.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="inline-flex items-center justify-center px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-full text-sm">
+          Request a Free Estimate
+        </a>
+        <a href="tel:412-766-1464" class="inline-flex items-center justify-center px-8 py-3.5 border-2 border-background/30 text-background font-semibold rounded-full text-sm">
+          Call 412-766-1464
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

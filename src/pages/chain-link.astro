@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const benefits = [
+  { title: 'Affordable', description: 'One of the most budget-friendly fencing options on the market.' },
+  { title: 'Low Maintenance', description: 'No painting, staining, or sealing required.' },
+  { title: 'Quick Installation', description: 'Our team gets your fence up fast with minimal disruption.' },
+  { title: 'Durability', description: 'Built to last through Pittsburgh weather, year after year.' },
+  { title: 'Security', description: 'Provides reliable security for pets, children, and property.' },
+  { title: 'Easy Repair', description: 'Individual sections can be repaired without replacing the whole fence.' },
+];
+---
+
+<Layout
+  title="Chain Link Fence Installation - Affordable Fence & Railing, LLC"
+  description="Maintenance-free chain link fencing in Pittsburgh, PA. Galvanized and black vinyl-coated options. Residential and commercial installations. Free estimates."
+>
+  <!-- Hero -->
+  <section class="bg-muted py-20 md:py-28">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+      <div class="max-w-2xl">
+        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-3">Our Products</p>
+        <h1>Chain Link Fences in Pittsburgh, PA</h1>
+        <p class="text-foreground/70 text-lg mt-6 leading-relaxed">
+          Maintenance-free chain link fencing in a wide range of colors, heights, and styles. Gates available in sliding or swinging configurations.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-20 md:py-24">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <h2 class="mb-6">Reliable Chain Link Fencing</h2>
+          <p class="text-foreground/70 leading-relaxed mb-4">
+            Chain-link fencing is one of the best maintenance-free options and offers a large variety of colors, heights, and styles. We also install chain-link gates that can slide or swing open for access.
+          </p>
+          <p class="text-foreground/70 leading-relaxed mb-4">
+            A galvanized residential chain-link fence provides safety for animals and defines the line of your property. We offer two types of chain link fences: black, galvanized, or a combination of both.
+          </p>
+          <p class="text-foreground/70 leading-relaxed mb-4">
+            We provide competitively priced, customized chain-link fence installations for residential properties.
+          </p>
+          <p class="text-foreground/70 leading-relaxed">
+            Commercial and residential fence customers will be impressed with our quality galvanized chain-link fences. Chain link fences are ideal for pool enclosures, privacy fences, dog kennel fences, tennis court fences, and overall security.
+          </p>
+        </div>
+
+        <div class="space-y-6">
+          <img
+            src="/images/gettyimages-928863520-1920w.jpg"
+            alt="Chain Link Fence in Pittsburgh, PA"
+            class="rounded-lg w-full"
+            loading="lazy"
+          />
+          <img
+            src="/images/img_2035-640w-1920w.webp"
+            alt="Black Vinyl Chain Link Fence"
+            class="rounded-lg w-full"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="bg-muted py-20 md:py-24">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+      <div class="max-w-xl mb-14">
+        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-2">Benefits</p>
+        <h2>Why Choose Chain Link Fence</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {benefits.map((benefit, i) => (
+          <div class="flex gap-4">
+            <span class="text-3xl font-display font-bold text-primary/20 leading-none">{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <h3 class="text-base mb-2">{benefit.title}</h3>
+              <p class="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Options -->
+  <section class="py-20 md:py-24">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+      <div class="max-w-xl mb-14">
+        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-2">Options</p>
+        <h2>Available Styles</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="p-8 bg-muted rounded-lg border-t-2 border-primary/30">
+          <h3 class="mb-3">Galvanized Chain Link</h3>
+          <p class="text-muted-foreground text-sm leading-relaxed">
+            The classic silver chain link option. Galvanized coating protects against rust and corrosion. A cost-effective choice for property boundary definition and security.
+          </p>
+        </div>
+        <div class="p-8 bg-muted rounded-lg border-t-2 border-primary/30">
+          <h3 class="mb-3">Black Vinyl-Coated Chain Link</h3>
+          <p class="text-muted-foreground text-sm leading-relaxed">
+            Vinyl-coated chain link blends into the landscape for a cleaner look. The coating adds an extra layer of weather protection. A popular upgrade for residential properties.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-primary/5 py-20 md:py-24">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-12 text-center">
+      <h2 class="mb-4">Get a Chain Link Fence Estimate</h2>
+      <p class="text-muted-foreground max-w-xl mx-auto mb-8">
+        To request a free estimate on our chain link fences and see if it is right for your home, call us today in Pittsburgh, PA.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="inline-flex items-center justify-center px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-full text-sm">
+          Request a Free Estimate
+        </a>
+        <a href="tel:412-766-1464" class="inline-flex items-center justify-center px-8 py-3.5 border-2 border-primary/30 text-primary font-semibold rounded-full text-sm">
+          Call 412-766-1464
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

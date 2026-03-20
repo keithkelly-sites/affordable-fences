@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00365c;
+  --color-primary-foreground: #ffffff;
+  --color-foreground: #1a1a1a;
+  --color-background: #fafaf7;
+  --color-muted: #f0efe9;
+  --color-muted-foreground: #6b6b60;
+  --color-border: #e2e0d8;
+  --color-accent: #0a4d7a;
+
+  --font-display: "Syne", system-ui, sans-serif;
+  --font-body: "Work Sans", system-ui, sans-serif;
+}
+
+html {
+  --radius: 0.5rem;
+  --radius-full: 999px;
+  --section-padding-y: 80px;
+  --section-padding-y-mobile: 56px;
+  --content-max-width: 1200px;
+  --prose-max-width: 640px;
+  --padding-x: 48px;
+  --padding-x-mobile: 24px;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-foreground);
+  background: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+}
+
+h1 {
+  font-size: clamp(2.75rem, 5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
