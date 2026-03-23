@@ -2,22 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 
 const styles = [
-  { name: 'Ashbery I Picket Fence', type: 'Picket', image: '/images/ashbery-i-picket-fence-1920w.jpg' },
-  { name: 'Ashbery II Picket Fence', type: 'Picket', image: '/images/ashbery-ii-picket-fence-1920w.jpg' },
-  { name: 'Ashbery IV Picket Fence', type: 'Picket', image: '/images/ashbery-iv-picket-fence-1920w.jpg' },
-  { name: 'Ashbery V Picket Fence', type: 'Picket', image: '/images/ashbery-v-picket-fence-1920w.jpg' },
-  { name: 'Melville Picket Fence', type: 'Picket', image: '/images/melville-picket-fence-1920w.jpg' },
-  { name: 'Tahoe III Privacy Fence', type: 'Privacy', image: '/images/tahoe-iii-privacy-fence-1920w.jpg' },
-  { name: 'Tahoe Privacy Fence', type: 'Privacy', image: '/images/tahoe-privacy-fence-1920w.jpg' },
-];
-
-const benefits = [
-  { title: 'Strong & Durable', description: 'Vinyl is five times stronger than wood, built to withstand heavy use and wear.' },
-  { title: 'Low Maintenance', description: 'Retains color and shape over time. No painting, staining, or sealing needed.' },
-  { title: 'Affordable', description: 'Save money at installation and throughout the life of your fence.' },
-  { title: 'Easy Installation', description: 'Our team can add vinyl fencing to your property quickly and efficiently.' },
-  { title: 'Privacy Options', description: 'Choose from picket or privacy styles to get the look and function you need.' },
-  { title: 'Weather Resistant', description: 'Withstands heat, rain, and cold. A solid choice for Pittsburgh weather.' },
+  { name: 'Ashbery I Picket', type: 'Picket', image: '/images/ashbery-i-picket-fence-1920w.jpg' },
+  { name: 'Ashbery II Picket', type: 'Picket', image: '/images/ashbery-ii-picket-fence-1920w.jpg' },
+  { name: 'Ashbery IV Picket', type: 'Picket', image: '/images/ashbery-iv-picket-fence-1920w.jpg' },
+  { name: 'Ashbery V Picket', type: 'Picket', image: '/images/ashbery-v-picket-fence-1920w.jpg' },
+  { name: 'Melville Picket', type: 'Picket', image: '/images/melville-picket-fence-1920w.jpg' },
+  { name: 'Tahoe III Privacy', type: 'Privacy', image: '/images/tahoe-iii-privacy-fence-1920w.jpg' },
+  { name: 'Tahoe Privacy', type: 'Privacy', image: '/images/tahoe-privacy-fence-1920w.jpg' },
 ];
 ---
 
@@ -25,72 +16,61 @@ const benefits = [
   title="Vinyl Fence Installation - Affordable Fence & Railing, LLC"
   description="High-quality vinyl fence installations in Pittsburgh, PA and surrounding areas. Five times stronger than wood. Picket and privacy styles available. Free estimates."
 >
-  <!-- Hero -->
-  <section class="bg-muted py-20 md:py-28">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <div class="max-w-2xl">
-        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-3">Our Products</p>
-        <h1>Vinyl Fence Installations in Pittsburgh, PA</h1>
-        <p class="text-foreground/70 text-lg mt-6 leading-relaxed">
-          Affordable Fence & Railing fabricates vinyl using various high-quality products. We carry vinyl picket and privacy fence systems in various styles and sizes.
-        </p>
+  <!-- Split hero -->
+  <section class="hero">
+    <div class="hero-text">
+      <span class="label">Vinyl Fences</span>
+      <h1>Five Times Stronger Than Wood</h1>
+      <p>We fabricate vinyl using various high-quality products. Picket and privacy systems in multiple styles and sizes, built to last through Pittsburgh weather.</p>
+      <div class="hero-actions">
+        <a href="/contact" class="btn btn-primary">Get a Free Estimate</a>
+        <a href="/gallery" class="btn btn-outline-dark">See Our Work</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="/images/img_2041-640w-1920w.webp" alt="White vinyl fence installed in Pittsburgh" loading="eager" fetchpriority="high" />
+    </div>
+  </section>
+
+  <!-- Why vinyl -->
+  <section class="why section">
+    <div class="wrap">
+      <div class="why-grid reveal">
+        <div class="why-content">
+          <h2>Why Vinyl Fencing?</h2>
+          <p>Vinyl is one of the most durable varieties of fencing. Compared to wood, vinyl is five times stronger. The added strength ensures that it's longer-lasting and withstands wear and tear.</p>
+          <p>Vinyl is easy to install, which helps our team get your fence up quickly. It retains its color and shape over time, saving you money on maintenance. No painting, staining, or sealing required.</p>
+          <p>Vinyl withstands shifts in weather and is a solid choice for areas with both high heat and heavy rain. We can customize the spacing between slats to achieve the look you want.</p>
+        </div>
+        <div class="why-stats">
+          <div class="stat">
+            <span class="stat-value">5x</span>
+            <span class="stat-label">Stronger than wood</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">$0</span>
+            <span class="stat-label">Annual maintenance cost</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">25+</span>
+            <span class="stat-label">Year lifespan</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Intro -->
-  <section class="py-20 md:py-24">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div>
-          <h2 class="mb-6">Why Vinyl Fencing?</h2>
-          <p class="text-foreground/70 leading-relaxed mb-4">
-            Vinyl fencing is one of the most durable varieties of fencing. Compared to wood fencing, vinyl is five times stronger. The added strength ensures that it is longer-lasting and withstands wear and tear.
-          </p>
-          <p class="text-foreground/70 leading-relaxed mb-4">
-            Vinyl is also easy to install, which aids our team's commitment to prompt service. We can quickly and efficiently add the fence you are looking for to your property.
-          </p>
-          <p class="text-foreground/70 leading-relaxed mb-4">
-            Vinyl fence panels save you money throughout the fence's life because they retain their color and shape. Vinyl withstands shifts in weather and is a great choice for areas that have both high heat and heavy rainstorms.
-          </p>
-          <p class="text-foreground/70 leading-relaxed">
-            We can customize the spacing between vinyl at our company to achieve the look you want.
-          </p>
-        </div>
-        <div>
-          <img
-            src="/images/img_2041-640w-1920w.webp"
-            alt="Beautiful Clean White Fence"
-            class="rounded-lg w-full"
-            loading="lazy"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Styles Gallery -->
-  <section class="bg-muted py-20 md:py-24">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <div class="max-w-xl mb-14">
-        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-2">Vinyl Fence Styles</p>
-        <h2>Our Most Popular Styles</h2>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {styles.map(style => (
-          <div class="bg-background rounded-lg overflow-hidden border border-border">
-            <div class="aspect-[4/3] overflow-hidden">
-              <img
-                src={style.image}
-                alt={style.name}
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div class="p-5 border-t-2 border-primary/20">
-              <h3 class="text-base">{style.name}</h3>
-              <span class="text-xs font-medium text-muted-foreground uppercase tracking-wider">{style.type} Style</span>
+  <!-- Styles gallery -->
+  <section class="styles-section section">
+    <div class="wrap">
+      <h2 class="reveal">Our Vinyl Styles</h2>
+      <div class="styles-grid">
+        {styles.map((style, i) => (
+          <div class:list={['style-card', 'reveal', i === 5 ? 'wide' : '']}>
+            <img src={style.image} alt={style.name} loading="lazy" />
+            <div class="style-info">
+              <h3>{style.name}</h3>
+              <span class="style-type">{style.type}</span>
             </div>
           </div>
         ))}
@@ -98,43 +78,334 @@ const benefits = [
     </div>
   </section>
 
-  <!-- Benefits -->
-  <section class="py-20 md:py-24">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <div class="max-w-xl mb-14">
-        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-2">Benefits</p>
-        <h2>Why Choose Vinyl Fence</h2>
+  <!-- Benefits — not a grid of identical cards -->
+  <section class="benefits section">
+    <div class="wrap">
+      <div class="benefits-header reveal">
+        <h2>Built for Pittsburgh</h2>
+        <p>Vinyl fencing handles everything western PA can throw at it.</p>
       </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {benefits.map((benefit, i) => (
-          <div class="flex gap-4">
-            <span class="text-3xl font-display font-bold text-primary/20 leading-none">{String(i + 1).padStart(2, '0')}</span>
-            <div>
-              <h3 class="text-base mb-2">{benefit.title}</h3>
-              <p class="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
-            </div>
+      <div class="benefits-list">
+        <div class="benefit-item reveal">
+          <span class="benefit-num">01</span>
+          <div>
+            <h3>Durable</h3>
+            <p>Built to withstand heavy use, wear, and Pittsburgh winters.</p>
           </div>
-        ))}
+        </div>
+        <div class="benefit-item reveal">
+          <span class="benefit-num">02</span>
+          <div>
+            <h3>Low Maintenance</h3>
+            <p>Retains color and shape. No painting, staining, or sealing needed.</p>
+          </div>
+        </div>
+        <div class="benefit-item reveal">
+          <span class="benefit-num">03</span>
+          <div>
+            <h3>Cost Effective</h3>
+            <p>Save money at installation and throughout the life of the fence.</p>
+          </div>
+        </div>
+        <div class="benefit-item reveal">
+          <span class="benefit-num">04</span>
+          <div>
+            <h3>Weather Resistant</h3>
+            <p>Withstands heat, rain, snow, and cold without cracking or warping.</p>
+          </div>
+        </div>
+        <div class="benefit-item reveal">
+          <span class="benefit-num">05</span>
+          <div>
+            <h3>Quick Install</h3>
+            <p>Our team adds vinyl fencing to your property quickly and efficiently.</p>
+          </div>
+        </div>
+        <div class="benefit-item reveal">
+          <span class="benefit-num">06</span>
+          <div>
+            <h3>Customizable</h3>
+            <p>Choose from picket or privacy styles in various sizes and spacings.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="bg-primary/5 py-20 md:py-24">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12 text-center">
-      <h2 class="mb-4">Get a Vinyl Fence for Your Property</h2>
-      <p class="text-muted-foreground max-w-xl mx-auto mb-8">
-        Call us today in Pittsburgh, PA, for a free estimate on vinyl fence installation.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact" class="inline-flex items-center justify-center px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-full text-sm">
-          Request a Free Estimate
-        </a>
-        <a href="tel:412-766-1464" class="inline-flex items-center justify-center px-8 py-3.5 border-2 border-primary/30 text-primary font-semibold rounded-full text-sm">
-          Call 412-766-1464
-        </a>
+  <section class="cta section">
+    <div class="wrap cta-inner">
+      <h2>Get a Vinyl Fence for Your Property</h2>
+      <p>Call us today for a free estimate on vinyl fence installation in Pittsburgh and surrounding areas.</p>
+      <div class="cta-buttons">
+        <a href="/contact" class="btn btn-primary">Request a Free Estimate</a>
+        <a href="tel:412-766-1464" class="btn btn-outline">Call 412-766-1464</a>
       </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  /* Split hero */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 60vh;
+  }
+
+  @media (min-width: 768px) {
+    .hero {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--space-xl) var(--gutter);
+    max-width: 600px;
+  }
+
+  @media (min-width: 768px) {
+    .hero-text {
+      padding: var(--space-2xl) var(--gutter) var(--space-2xl) var(--gutter);
+      margin-left: auto;
+      padding-right: var(--space-xl);
+    }
+  }
+
+  .label {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--teal);
+    margin-bottom: 0.75rem;
+  }
+
+  .hero h1 {
+    margin-bottom: var(--space-md);
+  }
+
+  .hero p {
+    color: var(--steel);
+    margin-bottom: var(--space-lg);
+    max-width: 45ch;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .hero-image {
+    position: relative;
+    min-height: 300px;
+    overflow: hidden;
+  }
+
+  .hero-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Why section */
+  .why {
+    background: var(--cream-dark);
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  @media (min-width: 768px) {
+    .why-grid { grid-template-columns: 2fr 1fr; }
+  }
+
+  .why-content h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  .why-content p {
+    color: var(--steel);
+  }
+
+  .why-stats {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .stat {
+    padding: var(--space-md);
+    background: var(--white);
+    border-left: 3px solid var(--teal);
+  }
+
+  .stat-value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--teal);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.8125rem;
+    color: var(--steel);
+    margin-top: 0.25rem;
+    display: block;
+  }
+
+  /* Styles gallery */
+  .styles-section h2 {
+    margin-bottom: var(--space-xl);
+  }
+
+  .styles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-sm);
+  }
+
+  .style-card {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    border-radius: 4px;
+  }
+
+  .style-card.wide {
+    grid-column: span 1;
+  }
+
+  @media (min-width: 640px) {
+    .style-card.wide { grid-column: span 2; }
+  }
+
+  .style-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s var(--ease-out);
+  }
+
+  .style-card:hover img {
+    transform: scale(1.05);
+  }
+
+  .style-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 1.25rem;
+    background: linear-gradient(to top, oklch(0 0 0 / 0.75), transparent);
+    padding-top: 3rem;
+  }
+
+  .style-info h3 {
+    color: var(--white);
+    font-size: 1rem;
+    margin-bottom: 0.125rem;
+  }
+
+  .style-type {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    color: oklch(1 0 0 / 0.6);
+  }
+
+  /* Benefits */
+  .benefits {
+    background: var(--charcoal);
+    background-image: var(--picket-pattern);
+  }
+
+  .benefits-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .benefits-header h2 {
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .benefits-header p {
+    color: var(--silver);
+    max-width: 35ch;
+  }
+
+  .benefits-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: oklch(1 0 0 / 0.06);
+  }
+
+  @media (min-width: 640px) {
+    .benefits-list { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 960px) {
+    .benefits-list { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .benefit-item {
+    display: flex;
+    gap: 1rem;
+    padding: var(--space-md);
+    background: var(--charcoal);
+  }
+
+  .benefit-num {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: oklch(1 0 0 / 0.08);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .benefit-item h3 {
+    color: var(--white);
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .benefit-item p {
+    color: var(--silver);
+    font-size: 0.875rem;
+  }
+
+  /* CTA */
+  .cta {
+    background: var(--teal);
+    text-align: center;
+  }
+
+  .cta-inner { max-width: 600px; }
+
+  .cta h2 { color: var(--white); margin-bottom: 0.75rem; }
+  .cta p { color: oklch(1 0 0 / 0.75); margin-bottom: var(--space-lg); }
+
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+</style>

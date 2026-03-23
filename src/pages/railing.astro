@@ -1,133 +1,271 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const benefits = [
-  { title: 'Safety & Security', description: 'Provides a secure barrier for porches, decks, staircases, and balconies.' },
-  { title: 'Custom Fabrication', description: 'We fabricate railings to fit your exact specifications and dimensions.' },
-  { title: 'Multiple Materials', description: 'Choose between aluminum and vinyl railing systems to suit your needs.' },
-  { title: 'Code Compliant', description: 'All installations meet local building code requirements and ADA standards.' },
-  { title: 'Adds Home Value', description: 'An attractive railing system adds curb appeal and value to your property.' },
-  { title: 'Low Maintenance', description: 'Both aluminum and vinyl railing require minimal upkeep over time.' },
-];
-
-const applications = [
-  'Front Porches',
-  'Decks',
-  'Exterior Staircases',
-  'Handicap Ramps',
-  'Balconies',
-];
+const applications = ['Front Porches', 'Decks', 'Exterior Staircases', 'Handicap Ramps', 'Balconies'];
 ---
 
 <Layout
   title="Railing Installation - Affordable Fence & Railing, LLC"
   description="Aluminum and vinyl railing installation in Pittsburgh, PA. Custom fabrication for porches, decks, staircases, handicap ramps, and balconies. Free estimates."
 >
-  <!-- Hero -->
-  <section class="bg-muted py-20 md:py-28">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <div class="max-w-2xl">
-        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-3">Our Products</p>
-        <h1>Railing Installations in Pittsburgh, PA</h1>
-        <p class="text-foreground/70 text-lg mt-6 leading-relaxed">
-          Aluminum and vinyl railing systems fabricated and installed for exterior residential projects. Customizable spacing, finishes, and colors.
-        </p>
-      </div>
+  <!-- Hero with railing photo -->
+  <section class="hero">
+    <div class="hero-text">
+      <span class="label">Railing</span>
+      <h1>Safety Meets Craftsmanship</h1>
+      <p>Aluminum and vinyl railing systems, fabricated and installed for exterior residential projects. Customizable spacing, finishes, and colors.</p>
+      <a href="/contact" class="btn btn-primary">Get a Free Estimate</a>
+    </div>
+    <div class="hero-image">
+      <img src="/images/img_2117-640w-1920w.webp" alt="Black metal railing on stone stairs" loading="eager" fetchpriority="high" />
     </div>
   </section>
 
   <!-- Content -->
-  <section class="py-20 md:py-24">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-        <div>
-          <h2 class="mb-6">Custom Railing for Your Home</h2>
-          <p class="text-foreground/70 leading-relaxed mb-4">
-            At Affordable Fence & Railing, we fabricate and install several different types of railing systems for exterior residential projects. We use high-quality products for aluminum railing and vinyl railing systems.
-          </p>
-          <p class="text-foreground/70 leading-relaxed mb-4">
-            With a correctly fabricated and installed railing system, you can add an attractive and functional structure to your home, providing security while adding to your home's value.
-          </p>
-          <p class="text-foreground/70 leading-relaxed mb-4">
-            We can customize your railings to suit your preferences while staying within your budget. Typical customizations include spacing, finishes, and colors.
-          </p>
-
-          <div class="mt-8">
-            <p class="text-sm font-semibold mb-3">Where we install:</p>
-            <div class="flex flex-wrap gap-3">
-              {applications.map(app => (
-                <span class="px-4 py-2 bg-primary/8 text-primary text-sm font-medium rounded-full">{app}</span>
-              ))}
+  <section class="content section">
+    <div class="wrap content-grid">
+      <div class="content-main">
+        <h2 class="reveal">Custom Railing for Your Home</h2>
+        <p class="lead reveal">We fabricate and install several different types of railing systems for exterior residential projects. We use high-quality products for both aluminum and vinyl railing.</p>
+        <p class="reveal">With a correctly fabricated and installed railing system, you add an attractive and functional structure to your home. It provides security while adding to your home's value.</p>
+        <p class="reveal">We can customize your railings to suit your preferences while staying within your budget. Typical customizations include spacing, finishes, and colors. All installations meet local building code requirements and ADA standards.</p>
+      </div>
+      <div class="content-aside reveal">
+        <h3>Where We Install</h3>
+        <div class="applications">
+          {applications.map((app, i) => (
+            <div class="app-item">
+              <span class="app-num">{String(i + 1).padStart(2, '0')}</span>
+              <span>{app}</span>
             </div>
-          </div>
-        </div>
-
-        <div class="space-y-6">
-          <img
-            src="/images/img_2033-640w-1920w.webp"
-            alt="Residential Aluminum Railing"
-            class="rounded-lg w-full"
-            loading="lazy"
-          />
-          <img
-            src="/images/img_2117-640w-1920w.webp"
-            alt="Black Metal Railing For Stairs"
-            class="rounded-lg w-full"
-            loading="lazy"
-          />
+          ))}
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- Photo grid — mixed sizes -->
+  <section class="photos">
+    <img src="/images/img_2033-640w-1920w.webp" alt="Residential aluminum railing" loading="lazy" class="photo-a" />
+    <img src="/images/517-640w-1920w.webp" alt="Porch with vinyl railing" loading="lazy" class="photo-b" />
+    <img src="/images/img_1176-640w-1920w.webp" alt="Railing installation" loading="lazy" class="photo-c" />
+    <img src="/images/img_1177-640w-1920w.webp" alt="Staircase railing" loading="lazy" class="photo-d" />
   </section>
 
   <!-- Benefits -->
-  <section class="bg-muted py-20 md:py-24">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <div class="max-w-xl mb-14">
-        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-2">Benefits</p>
-        <h2>Why Choose Our Railing</h2>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {benefits.map((benefit, i) => (
-          <div class="flex gap-4">
-            <span class="text-3xl font-display font-bold text-primary/20 leading-none">{String(i + 1).padStart(2, '0')}</span>
-            <div>
-              <h3 class="text-base mb-2">{benefit.title}</h3>
-              <p class="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery Row -->
-  <section class="py-20 md:py-24">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <img src="/images/517-640w-1920w.webp" alt="Porch with White Fence" class="rounded-lg w-full h-64 object-cover" loading="lazy" />
-        <img src="/images/img_1176-640w-1920w.webp" alt="Railing Installation" class="rounded-lg w-full h-64 object-cover" loading="lazy" />
-        <img src="/images/img_1177-640w-1920w.webp" alt="Staircase Railing" class="rounded-lg w-full h-64 object-cover" loading="lazy" />
+  <section class="benefits section">
+    <div class="wrap">
+      <h2 class="reveal">Why Our Railing</h2>
+      <div class="benefits-grid">
+        <div class="benefit reveal">
+          <h3>Code Compliant</h3>
+          <p>All installations meet local building codes and ADA standards.</p>
+        </div>
+        <div class="benefit reveal">
+          <h3>Custom Fabrication</h3>
+          <p>We fabricate railings to fit your exact specifications.</p>
+        </div>
+        <div class="benefit reveal">
+          <h3>Multiple Materials</h3>
+          <p>Choose between aluminum and vinyl railing systems.</p>
+        </div>
+        <div class="benefit reveal">
+          <h3>Adds Home Value</h3>
+          <p>Attractive railing adds curb appeal and property value.</p>
+        </div>
+        <div class="benefit reveal">
+          <h3>Low Maintenance</h3>
+          <p>Both aluminum and vinyl require minimal upkeep.</p>
+        </div>
+        <div class="benefit reveal">
+          <h3>Safety First</h3>
+          <p>Secure barriers for porches, decks, staircases, and more.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="bg-primary/5 py-20 md:py-24">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12 text-center">
-      <h2 class="mb-4">Need Railing for Your Home?</h2>
-      <p class="text-muted-foreground max-w-xl mx-auto mb-8">
-        If you are looking for durable and functional railing, call our team today in Pittsburgh, PA, for a free estimate.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact" class="inline-flex items-center justify-center px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-full text-sm">
-          Request a Free Estimate
-        </a>
-        <a href="tel:412-766-1464" class="inline-flex items-center justify-center px-8 py-3.5 border-2 border-primary/30 text-primary font-semibold rounded-full text-sm">
-          Call 412-766-1464
-        </a>
+  <section class="cta section">
+    <div class="wrap cta-inner">
+      <h2>Need Railing for Your Home?</h2>
+      <p>Call our team today for a free estimate on custom railing installation.</p>
+      <div class="cta-buttons">
+        <a href="/contact" class="btn btn-primary">Request a Free Estimate</a>
+        <a href="tel:412-766-1464" class="btn btn-outline-dark">Call 412-766-1464</a>
       </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  /* Split hero */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 55vh;
+  }
+
+  @media (min-width: 768px) {
+    .hero { grid-template-columns: 1fr 1fr; }
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--space-xl) var(--gutter);
+    max-width: 560px;
+  }
+
+  @media (min-width: 768px) {
+    .hero-text {
+      margin-left: auto;
+      padding-right: var(--space-xl);
+    }
+  }
+
+  .label {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--teal);
+    margin-bottom: 0.75rem;
+  }
+
+  .hero h1 { margin-bottom: var(--space-md); }
+  .hero p { color: var(--steel); margin-bottom: var(--space-lg); max-width: 42ch; }
+
+  .hero-image {
+    position: relative;
+    min-height: 300px;
+    overflow: hidden;
+  }
+
+  .hero-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Content grid */
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  @media (min-width: 768px) {
+    .content-grid { grid-template-columns: 2fr 1fr; }
+  }
+
+  .content-main h2 { margin-bottom: var(--space-md); }
+  .lead { font-size: 1.1rem; color: var(--iron); }
+  .content-main p { color: var(--steel); }
+
+  .content-aside {
+    padding: var(--space-lg);
+    background: var(--charcoal);
+    border-radius: 4px;
+    align-self: start;
+  }
+
+  .content-aside h3 {
+    color: var(--amber);
+    font-size: 0.8125rem;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-md);
+  }
+
+  .applications {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .app-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: oklch(1 0 0 / 0.8);
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  .app-num {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: oklch(1 0 0 / 0.2);
+  }
+
+  /* Photo grid */
+  .photos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 300px 200px;
+    gap: 2px;
+  }
+
+  @media (min-width: 768px) {
+    .photos {
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 350px;
+    }
+
+    .photo-a { grid-row: 1; grid-column: 1; }
+    .photo-b { grid-row: 1; grid-column: 2; }
+    .photo-c { grid-row: 1; grid-column: 3; }
+    .photo-d { display: none; }
+  }
+
+  .photos img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Benefits */
+  .benefits { background: var(--cream-dark); }
+
+  .benefits h2 { margin-bottom: var(--space-xl); }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  @media (min-width: 640px) {
+    .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 960px) {
+    .benefits-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .benefit {
+    padding: var(--space-md);
+    border-left: 3px solid var(--teal);
+    background: var(--white);
+  }
+
+  .benefit h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+  .benefit p { color: var(--steel); font-size: 0.875rem; }
+
+  /* CTA */
+  .cta { text-align: center; }
+  .cta-inner { max-width: 600px; }
+  .cta h2 { margin-bottom: 0.75rem; }
+  .cta p { color: var(--steel); margin-bottom: var(--space-lg); }
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+</style>

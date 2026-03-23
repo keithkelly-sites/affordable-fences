@@ -1,33 +1,37 @@
 ---
 import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title: string;
   description?: string;
+  darkHero?: boolean;
+  ogImage?: string;
+  jsonLd?: Record<string, unknown>;
 }
 
-const { title, description } = Astro.props;
-const businessName = 'Affordable Fence & Railing, LLC';
+const { title, description, darkHero = false, ogImage, jsonLd } = Astro.props;
+const siteName = 'Affordable Fence & Railing, LLC';
 const currentPath = Astro.url.pathname;
 
-const topLinks = [
+const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
 ];
 
 const fencingLinks = [
   { href: '/vinyl-fences', label: 'Vinyl Fences' },
-  { href: '/aluminum-fences', label: 'Aluminum Fences' },
+  { href: '/aluminum-fences', label: 'Aluminum' },
   { href: '/chain-link', label: 'Chain Link' },
   { href: '/railing', label: 'Railing' },
 ];
 
-const bottomLinks = [
+const endLinks = [
   { href: '/gallery', label: 'Gallery' },
   { href: '/contact', label: 'Contact' },
 ];
 
-const allLinks = [...topLinks, ...fencingLinks, ...bottomLinks];
+const allLinks = [...navLinks, ...fencingLinks, ...endLinks];
 
 function isActive(href: string): boolean {
   if (href === '/') return currentPath === '/';
@@ -48,288 +52,610 @@ const fencingActive = fencingLinks.some(l => isActive(l.href));
   {description && <meta property="og:description" content={description} />}
   <meta property="og:type" content="website" />
   <meta property="og:url" content={Astro.url.href} />
+  <meta property="og:site_name" content={siteName} />
+  {ogImage && <meta property="og:image" content={new URL(ogImage, Astro.site).href} />}
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="canonical" href={Astro.url.href} />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  <ClientRouter />
   <script async src="https://api.keithkelly.dev/d/s"></script>
-  <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init({endpoint:"https://api.keithkelly.dev/d/e"})</script>
+  <script is:inline>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init({endpoint:"https://api.keithkelly.dev/d/e"})</script>
 </head>
 <body>
-  <header class="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-    <div class="max-w-[1200px] mx-auto flex items-center justify-between px-6 md:px-12 py-4">
-      <a href="/" class="flex items-center gap-2">
-        <svg class="h-6 w-6 md:h-7 md:w-7 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M4 3 2 5v15c0 .6.4 1 1 1h2c.6 0 1-.4 1-1V5Z"/><path d="M6 8h4"/><path d="M6 18h4"/><path d="m12 3-2 2v15c0 .6.4 1 1 1h2c.6 0 1-.4 1-1V5Z"/><path d="M14 8h4"/><path d="M14 18h4"/><path d="m20 3-2 2v15c0 .6.4 1 1 1h2c.6 0 1-.4 1-1V5Z"/>
-        </svg>
-        <div class="flex flex-col leading-tight min-w-0">
-          <span class="font-display text-base md:text-lg font-bold text-foreground tracking-tight truncate">Affordable Fence & Railing</span>
-          <span class="text-xs text-muted-foreground font-medium tracking-wide uppercase hidden md:block">Pittsburgh, PA</span>
-        </div>
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+
+  <!-- ========== HEADER ========== -->
+  <header class:list={['site-header', { 'header-dark': darkHero }]}>
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="Affordable Fence & Railing — Home">
+        <span class="logo-pickets" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </span>
+        <span class="logo-text">
+          <strong>Affordable Fence</strong>
+          <small>& Railing, LLC</small>
+        </span>
       </a>
 
       <!-- Desktop nav -->
-      <nav class="hidden lg:flex items-center gap-1">
-        {topLinks.map(link => (
-          <a
-            href={link.href}
-            class:list={[
-              'px-3 py-2 text-sm font-medium rounded-md',
-              isActive(link.href)
-                ? 'text-primary bg-primary/8'
-                : 'text-foreground/70 hover:text-foreground hover:bg-muted',
-            ]}
-          >
+      <nav class="desktop-nav" aria-label="Main navigation">
+        {navLinks.map(link => (
+          <a href={link.href} class:list={['nav-link', { active: isActive(link.href) }]} aria-current={isActive(link.href) ? 'page' : undefined}>
             {link.label}
           </a>
         ))}
 
-        <!-- Fencing dropdown -->
-        <div class="relative" id="fencing-dropdown">
+        <div class="dropdown" id="fencing-dropdown">
           <button
             type="button"
-            class:list={[
-              'flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-md',
-              fencingActive
-                ? 'text-primary bg-primary/8'
-                : 'text-foreground/70 hover:text-foreground hover:bg-muted',
-            ]}
+            class:list={['nav-link dropdown-trigger', { active: fencingActive }]}
             id="fencing-trigger"
             aria-expanded="false"
             aria-haspopup="true"
           >
             Fencing
-            <svg class="w-3.5 h-3.5 mt-0.5 transition-transform" id="fencing-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div id="fencing-panel" class="hidden absolute top-full left-0 pt-2 z-50">
-          <div class="w-48 bg-background border border-border rounded-lg shadow-lg py-1">
+          <div class="dropdown-panel" id="fencing-panel">
             {fencingLinks.map(link => (
-              <a
-                href={link.href}
-                class:list={[
-                  'block px-4 py-2.5 text-sm font-medium',
-                  isActive(link.href)
-                    ? 'text-primary bg-primary/8'
-                    : 'text-foreground/70 hover:text-foreground hover:bg-muted',
-                ]}
-              >
+              <a href={link.href} class:list={['dropdown-link', { active: isActive(link.href) }]} aria-current={isActive(link.href) ? 'page' : undefined}>
                 {link.label}
               </a>
             ))}
           </div>
-          </div>
         </div>
 
-        {bottomLinks.map(link => (
-          <a
-            href={link.href}
-            class:list={[
-              'px-3 py-2 text-sm font-medium rounded-md',
-              isActive(link.href)
-                ? 'text-primary bg-primary/8'
-                : 'text-foreground/70 hover:text-foreground hover:bg-muted',
-            ]}
-          >
+        {endLinks.map(link => (
+          <a href={link.href} class:list={['nav-link', { active: isActive(link.href) }]} aria-current={isActive(link.href) ? 'page' : undefined}>
             {link.label}
           </a>
         ))}
-
-        <a
-          href="tel:412-766-1464"
-          class="ml-3 px-5 py-2.5 bg-primary text-primary-foreground text-sm font-semibold rounded-full"
-        >
-          412-766-1464
-        </a>
       </nav>
 
+      <a href="tel:412-766-1464" class="header-cta">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        412-766-1464
+      </a>
+
       <!-- Mobile toggle -->
-      <div class="flex items-center gap-3 lg:hidden">
-        <a href="tel:412-766-1464" class="text-primary font-semibold text-sm">Call Us</a>
-        <button id="menu-toggle" class="p-2 rounded-md hover:bg-muted" aria-label="Toggle menu" aria-expanded="false">
-          <svg id="hamburger-icon" class="w-6 h-6 text-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          <svg id="close-icon" class="w-6 h-6 text-foreground hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
+      <button class="mobile-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
     </div>
 
-    <!-- Mobile menu (flat list) -->
-    <nav id="mobile-menu" class="hidden lg:hidden border-t border-border bg-background">
-      <div class="px-6 py-4 flex flex-col gap-1">
-        {topLinks.map(link => (
-          <a
-            href={link.href}
-            class:list={[
-              'px-4 py-3 text-sm font-medium rounded-md',
-              isActive(link.href)
-                ? 'text-primary bg-primary/8'
-                : 'text-foreground/70 hover:text-foreground hover:bg-muted',
-            ]}
-          >
-            {link.label}
-          </a>
-        ))}
-        <p class="px-4 pt-3 pb-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Fencing</p>
-        {fencingLinks.map(link => (
-          <a
-            href={link.href}
-            class:list={[
-              'px-4 py-3 pl-6 text-sm font-medium rounded-md',
-              isActive(link.href)
-                ? 'text-primary bg-primary/8'
-                : 'text-foreground/70 hover:text-foreground hover:bg-muted',
-            ]}
-          >
-            {link.label}
-          </a>
-        ))}
-        {bottomLinks.map(link => (
-          <a
-            href={link.href}
-            class:list={[
-              'px-4 py-3 text-sm font-medium rounded-md',
-              isActive(link.href)
-                ? 'text-primary bg-primary/8'
-                : 'text-foreground/70 hover:text-foreground hover:bg-muted',
-            ]}
-          >
-            {link.label}
-          </a>
-        ))}
-        <a
-          href="tel:412-766-1464"
-          class="mt-2 px-5 py-3 bg-primary text-primary-foreground text-sm font-semibold rounded-full text-center"
-        >
-          Call 412-766-1464
-        </a>
-      </div>
+    <!-- Mobile menu -->
+    <nav class="mobile-nav" id="mobile-menu" aria-label="Mobile navigation" style="display:none">
+      {navLinks.map(link => (
+        <a href={link.href} class:list={['mobile-link', { active: isActive(link.href) }]}>{link.label}</a>
+      ))}
+      <span class="mobile-divider">Fencing</span>
+      {fencingLinks.map(link => (
+        <a href={link.href} class:list={['mobile-link indent', { active: isActive(link.href) }]}>{link.label}</a>
+      ))}
+      {endLinks.map(link => (
+        <a href={link.href} class:list={['mobile-link', { active: isActive(link.href) }]}>{link.label}</a>
+      ))}
+      <a href="tel:412-766-1464" class="mobile-phone">Call 412-766-1464</a>
     </nav>
   </header>
 
-  <main>
+  <!-- ========== MAIN ========== -->
+  <main id="main-content">
     <slot />
   </main>
 
-  <footer class="bg-foreground text-background/80">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12 py-16">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div>
-          <p class="font-display text-lg font-bold text-background mb-4">Affordable Fence & Railing</p>
-          <p class="text-sm leading-relaxed mb-4">Locally owned fence and railing company serving Pittsburgh and surrounding counties for over 30 years. Fully licensed and insured.</p>
-          <div class="flex gap-4 mt-4">
-            <a href="https://facebook.com/Affordable-Fence-Railing-LLC-600448523453587" aria-label="Facebook" class="text-background/60 hover:text-background">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/afc_pgh_pa/" aria-label="Instagram" class="text-background/60 hover:text-background">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <div>
-          <p class="font-semibold text-background mb-4 text-sm uppercase tracking-wider">Quick Links</p>
-          <div class="flex flex-col gap-2">
-            {allLinks.map(link => (
-              <a href={link.href} class="text-sm text-background/70 hover:text-background">{link.label}</a>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <p class="font-semibold text-background mb-4 text-sm uppercase tracking-wider">Contact Info</p>
-          <div class="flex flex-col gap-3 text-sm">
-            <a href="tel:412-766-1464" class="text-background/70 hover:text-background">Phone: 412-766-1464</a>
-            <p class="text-background/70">Fax: 412-230-8654</p>
-            <a href="mailto:carol@affordable-fences.com" class="text-background/70 hover:text-background">carol@affordable-fences.com</a>
-            <p class="text-background/70">309 Camp Horne Road<br />Pittsburgh, PA 15202</p>
-            <p class="text-background/70">Mon-Fri: 9:00 AM - 4:30 PM<br />Sat-Sun: Closed</p>
-          </div>
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="footer-inner wrap">
+      <div class="footer-brand">
+        <p class="footer-name">Affordable Fence & Railing</p>
+        <p class="footer-tagline">Locally owned, serving Pittsburgh and five surrounding counties since 1993. Fully licensed and insured.</p>
+        <div class="footer-social">
+          <a href="https://facebook.com/Affordable-Fence-Railing-LLC-600448523453587" aria-label="Facebook">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/afc_pgh_pa/" aria-label="Instagram">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
         </div>
       </div>
 
-      <div class="border-t border-background/15 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <p class="text-sm text-background/50">&copy; {new Date().getFullYear()} Affordable Fence & Railing, LLC. All rights reserved.</p>
-        <p class="text-sm text-background/50">Fully Licensed & Insured</p>
+      <div class="footer-links">
+        <p class="footer-heading">Pages</p>
+        {allLinks.map(link => (
+          <a href={link.href} class="footer-link">{link.label}</a>
+        ))}
       </div>
+
+      <div class="footer-contact">
+        <p class="footer-heading">Get in Touch</p>
+        <address class="footer-address-block">
+          <a href="tel:412-766-1464" class="footer-link">412-766-1464</a>
+          <a href="mailto:carol@affordable-fences.com" class="footer-link">carol@affordable-fences.com</a>
+          <p class="footer-address">309 Camp Horne Road<br />Pittsburgh, PA 15202</p>
+          <p class="footer-hours">Mon-Fri: 9:00 AM - 4:30 PM</p>
+        </address>
+      </div>
+    </div>
+
+    <div class="footer-bottom wrap">
+      <p>&copy; {new Date().getFullYear()} Affordable Fence & Railing, LLC</p>
+      <p>Fully Licensed & Insured</p>
     </div>
   </footer>
 
+  <!-- ========== SCRIPTS ========== -->
   <script>
-    // Mobile menu toggle
-    const toggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('mobile-menu');
-    const hamburger = document.getElementById('hamburger-icon');
-    const closeIcon = document.getElementById('close-icon');
+    function initPage() {
+      // Mobile menu
+      const toggle = document.getElementById('menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      const iconOpen = toggle?.querySelector('.icon-open') as HTMLElement;
+      const iconClose = toggle?.querySelector('.icon-close') as HTMLElement;
 
-    toggle?.addEventListener('click', () => {
-      const isOpen = !menu?.classList.contains('hidden');
-      menu?.classList.toggle('hidden');
-      hamburger?.classList.toggle('hidden');
-      closeIcon?.classList.toggle('hidden');
-      toggle?.setAttribute('aria-expanded', String(!isOpen));
-    });
+      toggle?.addEventListener('click', () => {
+        const open = menu?.style.display === 'none';
+        if (menu) menu.style.display = open ? 'flex' : 'none';
+        if (iconOpen) iconOpen.style.display = open ? 'none' : 'block';
+        if (iconClose) iconClose.style.display = open ? 'block' : 'none';
+        toggle.setAttribute('aria-expanded', String(open));
+      });
 
-    // Desktop fencing dropdown
-    const dropdown = document.getElementById('fencing-dropdown');
-    const trigger = document.getElementById('fencing-trigger');
-    const panel = document.getElementById('fencing-panel');
-    const chevron = document.getElementById('fencing-chevron');
+      // Desktop dropdown
+      const dropdown = document.getElementById('fencing-dropdown');
+      const trigger = document.getElementById('fencing-trigger');
+      const panel = document.getElementById('fencing-panel');
+      let closeTimer: ReturnType<typeof setTimeout> | null = null;
 
-    function openDropdown() {
-      panel?.classList.remove('hidden');
-      chevron?.style.setProperty('transform', 'rotate(180deg)');
-      trigger?.setAttribute('aria-expanded', 'true');
+      function openDrop() {
+        panel?.classList.add('open');
+        trigger?.setAttribute('aria-expanded', 'true');
+      }
+      function closeDrop() {
+        panel?.classList.remove('open');
+        trigger?.setAttribute('aria-expanded', 'false');
+      }
+
+      trigger?.addEventListener('click', (e) => { e.stopPropagation(); panel?.classList.contains('open') ? closeDrop() : openDrop(); });
+      dropdown?.addEventListener('mouseenter', () => { if (closeTimer) clearTimeout(closeTimer); openDrop(); });
+      dropdown?.addEventListener('mouseleave', () => { closeTimer = setTimeout(closeDrop, 150); });
+      document.addEventListener('click', (e) => { if (!dropdown?.contains(e.target as Node)) closeDrop(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrop(); });
+
+      // Scroll reveal
+      const reveals = document.querySelectorAll('.reveal');
+      if (reveals.length) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(el => io.observe(el));
+      }
     }
 
-    function closeDropdown() {
-      panel?.classList.add('hidden');
-      chevron?.style.setProperty('transform', 'rotate(0deg)');
-      trigger?.setAttribute('aria-expanded', 'false');
-    }
-
-    trigger?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = !panel?.classList.contains('hidden');
-      if (isOpen) {
-        closeDropdown();
-      } else {
-        openDropdown();
-      }
-    });
-
-    // Open on hover (desktop) with delay on close
-    let closeTimer: ReturnType<typeof setTimeout> | null = null;
-
-    dropdown?.addEventListener('mouseenter', () => {
-      if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
-      openDropdown();
-    });
-
-    dropdown?.addEventListener('mouseleave', () => {
-      closeTimer = setTimeout(closeDropdown, 150);
-    });
-
-    // Close on click outside
-    document.addEventListener('click', (e) => {
-      if (!dropdown?.contains(e.target as Node)) {
-        closeDropdown();
-      }
-    });
-
-    // Close on Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeDropdown();
-      }
-    });
+    // Run on initial load and after each view transition navigation
+    document.addEventListener('astro:page-load', initPage);
   </script>
 </body>
 </html>
+
+<style>
+  /* ======= SKIP TO CONTENT ======= */
+  .skip-to-content {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 200;
+    padding: 0.75rem 1.5rem;
+    background: var(--teal);
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 0 0 4px 4px;
+  }
+
+  .skip-to-content:focus {
+    top: 0;
+  }
+
+  /* ======= HEADER ======= */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--cream);
+    border-bottom: 1px solid oklch(0 0 0 / 0.06);
+    transition: background 0.3s;
+  }
+
+  .header-dark {
+    background: var(--charcoal);
+    border-bottom-color: oklch(1 0 0 / 0.06);
+  }
+
+  .header-inner {
+    max-width: var(--max-w);
+    margin-inline: auto;
+    padding: 0 var(--gutter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  /* Logo */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .logo-pickets {
+    display: flex;
+    gap: 3px;
+
+    & span {
+      width: 4px;
+      height: 22px;
+      background: var(--teal);
+      border-radius: 1px;
+    }
+
+    & span:nth-child(2),
+    & span:nth-child(3) {
+      height: 18px;
+      margin-top: 4px;
+    }
+  }
+
+  .header-dark .logo-pickets span {
+    background: var(--amber);
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+
+    & strong {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: var(--charcoal);
+    }
+
+    & small {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--steel);
+      letter-spacing: 0.03em;
+    }
+  }
+
+  .header-dark .logo-text strong { color: var(--white); }
+  .header-dark .logo-text small { color: var(--silver); }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: none;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  @media (min-width: 960px) {
+    .desktop-nav { display: flex; }
+    .mobile-toggle { display: none !important; }
+  }
+
+  .nav-link {
+    padding: 0.5rem 0.75rem;
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--steel);
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+
+    &:hover { color: var(--charcoal); }
+    &.active { color: var(--teal); }
+  }
+
+  .header-dark .nav-link {
+    color: var(--silver);
+    &:hover { color: var(--white); }
+    &.active { color: var(--amber); }
+  }
+
+  /* Dropdown */
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .chevron {
+    transition: transform 0.2s;
+  }
+
+  .dropdown-panel.open .chevron,
+  .dropdown-trigger[aria-expanded="true"] ~ .chevron {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-panel {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 0.5rem;
+    display: none;
+  }
+
+  .dropdown-panel.open {
+    display: block;
+  }
+
+  .dropdown-panel::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -0.5rem;
+    left: 0;
+    right: 0;
+    height: 0.5rem;
+  }
+
+  .dropdown-panel {
+    border-radius: 6px;
+    box-shadow: 0 8px 30px oklch(0 0 0 / 0.12);
+    overflow: hidden;
+  }
+
+  .dropdown-link {
+    display: block;
+    padding: 0.6rem 1.25rem;
+    font-family: var(--font-display);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--steel);
+    background: var(--white);
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .dropdown-link:hover {
+    color: var(--teal);
+    background: var(--cream-dark);
+  }
+
+  .dropdown-link.active {
+    color: var(--teal);
+  }
+
+  /* Phone CTA in header */
+  .header-cta {
+    display: none;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.25rem;
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: var(--teal);
+    color: var(--white);
+    border-radius: 4px;
+    transition: background 0.2s;
+
+    &:hover { background: var(--teal-light); }
+  }
+
+  .header-dark .header-cta {
+    background: var(--amber);
+    color: var(--charcoal);
+    &:hover { background: var(--amber-hover); }
+  }
+
+  @media (min-width: 960px) {
+    .header-cta { display: inline-flex; }
+  }
+
+  /* Mobile */
+  .mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--charcoal);
+  }
+
+  .header-dark .mobile-toggle { color: var(--white); }
+
+  @media (min-width: 960px) {
+    .mobile-toggle { display: none; }
+  }
+
+  .mobile-nav {
+    flex-direction: column;
+    padding: var(--space-sm) var(--gutter) var(--space-md);
+    background: var(--cream);
+    border-top: 1px solid oklch(0 0 0 / 0.06);
+  }
+
+  .header-dark .mobile-nav {
+    background: var(--charcoal);
+    border-top-color: oklch(1 0 0 / 0.06);
+  }
+
+  .mobile-link {
+    padding: 0.75rem 0.5rem;
+    font-family: var(--font-display);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--steel);
+
+    &:hover { color: var(--charcoal); }
+    &.active { color: var(--teal); }
+    &.indent { padding-left: 1.5rem; }
+  }
+
+  .header-dark .mobile-link {
+    color: var(--silver);
+    &:hover { color: var(--white); }
+    &.active { color: var(--amber); }
+  }
+
+  .mobile-divider {
+    padding: 0.75rem 0.5rem 0.25rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--silver);
+  }
+
+  .mobile-phone {
+    margin-top: 0.75rem;
+    padding: 0.85rem;
+    font-family: var(--font-display);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-align: center;
+    background: var(--teal);
+    color: var(--white);
+    border-radius: 4px;
+  }
+
+  .header-dark .mobile-phone {
+    background: var(--amber);
+    color: var(--charcoal);
+  }
+
+  /* ======= FOOTER ======= */
+  .site-footer {
+    background: var(--charcoal);
+    color: oklch(1 0 0 / 0.7);
+    background-image: var(--picket-pattern);
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    padding-block: var(--space-2xl) var(--space-lg);
+  }
+
+  @media (min-width: 768px) {
+    .footer-inner {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+  }
+
+  .footer-name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    max-width: 32ch;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.25rem;
+
+    & a {
+      color: oklch(1 0 0 / 0.5);
+      transition: color 0.2s;
+      &:hover { color: var(--white); }
+    }
+  }
+
+  .footer-heading {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--amber);
+    margin-bottom: 1rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .footer-link {
+    font-size: 0.875rem;
+    color: oklch(1 0 0 / 0.7);
+    transition: color 0.2s;
+    &:hover { color: var(--white); }
+  }
+
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .footer-address-block {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .footer-address, .footer-hours {
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 1.5rem;
+    border-top: 1px solid oklch(1 0 0 / 0.08);
+    font-size: 0.8125rem;
+    color: oklch(1 0 0 / 0.5);
+  }
+</style>

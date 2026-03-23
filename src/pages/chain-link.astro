@@ -1,132 +1,283 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const benefits = [
-  { title: 'Affordable', description: 'One of the most budget-friendly fencing options on the market.' },
-  { title: 'Low Maintenance', description: 'No painting, staining, or sealing required.' },
-  { title: 'Quick Installation', description: 'Our team gets your fence up fast with minimal disruption.' },
-  { title: 'Durability', description: 'Built to last through Pittsburgh weather, year after year.' },
-  { title: 'Security', description: 'Provides reliable security for pets, children, and property.' },
-  { title: 'Easy Repair', description: 'Individual sections can be repaired without replacing the whole fence.' },
-];
 ---
 
 <Layout
   title="Chain Link Fence Installation - Affordable Fence & Railing, LLC"
   description="Maintenance-free chain link fencing in Pittsburgh, PA. Galvanized and black vinyl-coated options. Residential and commercial installations. Free estimates."
 >
-  <!-- Hero -->
-  <section class="bg-muted py-20 md:py-28">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <div class="max-w-2xl">
-        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-3">Our Products</p>
-        <h1>Chain Link Fences in Pittsburgh, PA</h1>
-        <p class="text-foreground/70 text-lg mt-6 leading-relaxed">
-          Maintenance-free chain link fencing in a wide range of colors, heights, and styles. Gates available in sliding or swinging configurations.
-        </p>
+  <!-- Full-bleed sunset hero -->
+  <section class="hero">
+    <img src="/images/gettyimages-928863520-1920w.jpg" alt="" class="hero-bg" loading="eager" fetchpriority="high" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content wrap">
+      <span class="label">Chain Link</span>
+      <h1>Low Maintenance. High Durability.</h1>
+      <p>Chain link fencing in a wide range of colors, heights, and styles. Gates available in sliding or swinging configurations.</p>
+      <a href="/contact" class="btn btn-primary">Get a Free Estimate</a>
+    </div>
+  </section>
+
+  <!-- Two options — side by side -->
+  <section class="options section">
+    <div class="wrap">
+      <h2 class="reveal">Two Options, One Standard</h2>
+      <div class="options-grid">
+        <div class="option-card reveal">
+          <div class="option-color galvanized"></div>
+          <h3>Galvanized</h3>
+          <p>The classic silver chain link. Galvanized coating protects against rust and corrosion. A cost-effective choice for property boundaries and security.</p>
+        </div>
+        <div class="option-card reveal">
+          <div class="option-color vinyl-coated"></div>
+          <h3>Black Vinyl-Coated</h3>
+          <p>Vinyl-coated chain link blends into the landscape for a cleaner look. The coating adds an extra layer of weather protection. A popular upgrade for residential properties.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Content -->
-  <section class="py-20 md:py-24">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-        <div>
-          <h2 class="mb-6">Reliable Chain Link Fencing</h2>
-          <p class="text-foreground/70 leading-relaxed mb-4">
-            Chain-link fencing is one of the best maintenance-free options and offers a large variety of colors, heights, and styles. We also install chain-link gates that can slide or swing open for access.
-          </p>
-          <p class="text-foreground/70 leading-relaxed mb-4">
-            A galvanized residential chain-link fence provides safety for animals and defines the line of your property. We offer two types of chain link fences: black, galvanized, or a combination of both.
-          </p>
-          <p class="text-foreground/70 leading-relaxed mb-4">
-            We provide competitively priced, customized chain-link fence installations for residential properties.
-          </p>
-          <p class="text-foreground/70 leading-relaxed">
-            Commercial and residential fence customers will be impressed with our quality galvanized chain-link fences. Chain link fences are ideal for pool enclosures, privacy fences, dog kennel fences, tennis court fences, and overall security.
-          </p>
-        </div>
-
-        <div class="space-y-6">
-          <img
-            src="/images/gettyimages-928863520-1920w.jpg"
-            alt="Chain Link Fence in Pittsburgh, PA"
-            class="rounded-lg w-full"
-            loading="lazy"
-          />
-          <img
-            src="/images/img_2035-640w-1920w.webp"
-            alt="Black Vinyl Chain Link Fence"
-            class="rounded-lg w-full"
-            loading="lazy"
-          />
-        </div>
+  <section class="content section">
+    <div class="wrap content-grid">
+      <div class="content-text">
+        <h2 class="reveal">Reliable Fencing for Every Property</h2>
+        <p class="reveal">Chain link is one of the best maintenance-free options available. A galvanized residential chain link fence provides safety for animals and defines the line of your property.</p>
+        <p class="reveal">We provide competitively priced, customized installations for residential properties. Commercial and residential customers will be impressed with our quality galvanized chain link fences.</p>
+        <p class="reveal">Chain link is ideal for pool enclosures, privacy fences, dog kennel fences, tennis court fences, and overall security. We also install gates that can slide or swing open for access.</p>
+      </div>
+      <div class="content-image reveal">
+        <img src="/images/img_2035-640w-1920w.webp" alt="Black vinyl chain link fence" loading="lazy" />
       </div>
     </div>
   </section>
 
-  <!-- Benefits -->
-  <section class="bg-muted py-20 md:py-24">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <div class="max-w-xl mb-14">
-        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-2">Benefits</p>
-        <h2>Why Choose Chain Link Fence</h2>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {benefits.map((benefit, i) => (
-          <div class="flex gap-4">
-            <span class="text-3xl font-display font-bold text-primary/20 leading-none">{String(i + 1).padStart(2, '0')}</span>
-            <div>
-              <h3 class="text-base mb-2">{benefit.title}</h3>
-              <p class="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+  <!-- Benefits — horizontal scrolling cards -->
+  <section class="benefits section">
+    <div class="wrap">
+      <h2 class="reveal">Why Chain Link</h2>
     </div>
-  </section>
-
-  <!-- Options -->
-  <section class="py-20 md:py-24">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <div class="max-w-xl mb-14">
-        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-2">Options</p>
-        <h2>Available Styles</h2>
+    <div class="benefits-scroll">
+      <div class="benefit-card">
+        <span class="benefit-num">01</span>
+        <h3>Budget Friendly</h3>
+        <p>One of the most affordable fencing options on the market.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="p-8 bg-muted rounded-lg border-t-2 border-primary/30">
-          <h3 class="mb-3">Galvanized Chain Link</h3>
-          <p class="text-muted-foreground text-sm leading-relaxed">
-            The classic silver chain link option. Galvanized coating protects against rust and corrosion. A cost-effective choice for property boundary definition and security.
-          </p>
-        </div>
-        <div class="p-8 bg-muted rounded-lg border-t-2 border-primary/30">
-          <h3 class="mb-3">Black Vinyl-Coated Chain Link</h3>
-          <p class="text-muted-foreground text-sm leading-relaxed">
-            Vinyl-coated chain link blends into the landscape for a cleaner look. The coating adds an extra layer of weather protection. A popular upgrade for residential properties.
-          </p>
-        </div>
+      <div class="benefit-card">
+        <span class="benefit-num">02</span>
+        <h3>Zero Maintenance</h3>
+        <p>No painting, staining, or sealing required. Ever.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-num">03</span>
+        <h3>Fast Installation</h3>
+        <p>Our team gets your fence up with minimal disruption.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-num">04</span>
+        <h3>Durable</h3>
+        <p>Built to last through Pittsburgh weather, year after year.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-num">05</span>
+        <h3>Security</h3>
+        <p>Reliable protection for pets, children, and property.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-num">06</span>
+        <h3>Easy Repair</h3>
+        <p>Individual sections can be fixed without replacing the whole fence.</p>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="bg-primary/5 py-20 md:py-24">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12 text-center">
-      <h2 class="mb-4">Get a Chain Link Fence Estimate</h2>
-      <p class="text-muted-foreground max-w-xl mx-auto mb-8">
-        To request a free estimate on our chain link fences and see if it is right for your home, call us today in Pittsburgh, PA.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact" class="inline-flex items-center justify-center px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-full text-sm">
-          Request a Free Estimate
-        </a>
-        <a href="tel:412-766-1464" class="inline-flex items-center justify-center px-8 py-3.5 border-2 border-primary/30 text-primary font-semibold rounded-full text-sm">
-          Call 412-766-1464
-        </a>
+  <section class="cta section">
+    <div class="wrap cta-inner">
+      <h2>Get a Chain Link Fence Estimate</h2>
+      <p>Call us today to find out if chain link is right for your home.</p>
+      <div class="cta-buttons">
+        <a href="/contact" class="btn btn-primary">Request a Free Estimate</a>
+        <a href="tel:412-766-1464" class="btn btn-outline">Call 412-766-1464</a>
       </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  /* Hero with golden hour chain link photo */
+  .hero {
+    position: relative;
+    min-height: 65vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      oklch(0.14 0.005 260 / 0.85) 0%,
+      oklch(0.14 0.005 260 / 0.3) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    padding-block: 4rem;
+    max-width: 600px;
+  }
+
+  .label {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--amber);
+    margin-bottom: 0.75rem;
+  }
+
+  .hero h1 { color: var(--white); margin-bottom: var(--space-md); }
+  .hero p { color: oklch(1 0 0 / 0.7); margin-bottom: var(--space-lg); max-width: 42ch; }
+
+  /* Options cards */
+  .options h2 {
+    margin-bottom: var(--space-xl);
+  }
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  @media (min-width: 640px) {
+    .options-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .option-card {
+    padding: var(--space-lg);
+    border: 1px solid oklch(0 0 0 / 0.06);
+    border-radius: 4px;
+  }
+
+  .option-color {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    margin-bottom: var(--space-md);
+  }
+
+  .galvanized { background: linear-gradient(90deg, #b8b8b8, #d4d4d4, #a8a8a8); }
+  .vinyl-coated { background: linear-gradient(90deg, #1a1a1a, #333, #1a1a1a); }
+
+  .option-card h3 { margin-bottom: 0.5rem; }
+  .option-card p { color: var(--steel); font-size: 0.9375rem; }
+
+  /* Content */
+  .content { background: var(--cream-dark); }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  @media (min-width: 768px) {
+    .content-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .content-text h2 { margin-bottom: var(--space-md); }
+  .content-text p { color: var(--steel); }
+
+  .content-image img {
+    width: 100%;
+    border-radius: 4px;
+    object-fit: cover;
+    aspect-ratio: 4 / 3;
+  }
+
+  /* Benefits — horizontal scrolling */
+  .benefits {
+    background: var(--charcoal);
+    background-image: var(--picket-pattern);
+    overflow: hidden;
+  }
+
+  .benefits h2 {
+    color: var(--white);
+    margin-bottom: var(--space-lg);
+  }
+
+  .benefits-scroll {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(220px, 1fr));
+    gap: 2px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: var(--space-md);
+  }
+
+  @media (max-width: 959px) {
+    .benefits-scroll {
+      padding-inline: var(--gutter);
+    }
+  }
+
+  .benefit-card {
+    padding: var(--space-lg) var(--space-md);
+    background: var(--iron);
+    scroll-snap-align: start;
+    min-width: 200px;
+  }
+
+  .benefit-num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    color: oklch(1 0 0 / 0.08);
+    line-height: 1;
+    margin-bottom: var(--space-sm);
+  }
+
+  .benefit-card h3 {
+    color: var(--white);
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .benefit-card p {
+    color: var(--silver);
+    font-size: 0.8125rem;
+  }
+
+  /* CTA */
+  .cta {
+    background: var(--teal);
+    text-align: center;
+  }
+
+  .cta-inner { max-width: 600px; }
+  .cta h2 { color: var(--white); margin-bottom: 0.75rem; }
+  .cta p { color: oklch(1 0 0 / 0.75); margin-bottom: var(--space-lg); }
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+</style>

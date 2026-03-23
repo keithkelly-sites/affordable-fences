@@ -1,119 +1,324 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const benefits = [
-  { title: 'Corrosion Resistant', description: 'Unlike iron fences, aluminum does not corrode over time. Built to last through Pittsburgh weather.' },
-  { title: 'Customizable', description: 'Choose your preferred color, height, and finish to match your property.' },
-  { title: 'Low Maintenance', description: 'Resistant to peeling, corrosion, and flaking. Requires fewer repairs than other fence types.' },
-  { title: 'Quick Installation', description: 'Can be installed quickly, even on inclines like hillsides.' },
-  { title: 'Versatile', description: 'Great for residential and commercial properties, pool enclosures, and more.' },
-  { title: 'Adds Value', description: 'An attractive deterrent to trespassing that defines property lines and adds curb appeal.' },
-];
 ---
 
 <Layout
   title="Aluminum Fence Installation - Affordable Fence & Railing, LLC"
   description="Expert aluminum fence installations for residential and commercial properties in Pittsburgh, PA. Corrosion-resistant, customizable, and low maintenance. Free estimates."
 >
-  <!-- Hero -->
-  <section class="bg-muted py-20 md:py-28">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <div class="max-w-2xl">
-        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-3">Our Products</p>
-        <h1>Aluminum Fence Installations in Pittsburgh, PA</h1>
-        <p class="text-foreground/70 text-lg mt-6 leading-relaxed">
-          Durable, low-maintenance aluminum fencing for residential and commercial properties. Customizable color, height, and finish.
-        </p>
+  <!-- Dark hero — matches the black aluminum aesthetic -->
+  <section class="hero">
+    <img src="/images/gettyimages-1139142927-1920w.jpg" alt="" class="hero-bg" loading="eager" fetchpriority="high" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content wrap">
+      <span class="label">Aluminum Fences</span>
+      <h1>Built to Last. Built to Look Good.</h1>
+      <p>Corrosion-resistant aluminum fencing for residential and commercial properties. Customize the color, height, and finish to match your property.</p>
+      <div class="hero-actions">
+        <a href="/contact" class="btn btn-primary">Get a Free Estimate</a>
+        <a href="tel:412-766-1464" class="btn btn-outline">Call 412-766-1464</a>
       </div>
     </div>
   </section>
 
   <!-- Content -->
-  <section class="py-20 md:py-24">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+  <section class="content section">
+    <div class="wrap content-grid">
+      <div class="content-text">
+        <h2 class="reveal">What Makes Aluminum Different</h2>
+        <p class="lead reveal">Unlike traditional iron fences, aluminum does not corrode over time. You get the look of wrought iron without the maintenance headaches.</p>
+        <p class="reveal">Aluminum fencing is durable, low-maintenance, and available in various styles. We offer the best selection of aluminum fences in the Pittsburgh area. You can customize your fence by specifying the color, height, and finish.</p>
+        <p class="reveal">These fences are comparatively affordable, versatile, and low maintenance. Resistant to peeling, corrosion, and flaking. A great choice for anyone that wants to protect their property while adding curb appeal.</p>
+        <p class="reveal">We also sell aluminum fencing materials for DIY projects. If you want the confidence of professional installation, ask us about our services.</p>
+      </div>
+      <div class="content-photos reveal">
+        <img src="/images/img_2047-640w-1920w.webp" alt="Aluminum fence on retaining wall" class="photo-tall" loading="lazy" />
+        <img src="/images/img_2036-640w-1920w.webp" alt="Aluminum pool fence between brick pillars" class="photo-short" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Use cases — horizontal scroll strip -->
+  <section class="uses section">
+    <div class="wrap">
+      <h2 class="reveal">Where Aluminum Works</h2>
+    </div>
+    <div class="uses-strip">
+      <div class="use-card">
+        <img src="/images/505-640w-1920w.webp" alt="Residential aluminum fence" loading="lazy" />
+        <h3>Residential</h3>
+        <p>Define your yard, protect pets and children</p>
+      </div>
+      <div class="use-card">
+        <img src="/images/img_2036-640w-1920w.webp" alt="Pool fence" loading="lazy" />
+        <h3>Pool Enclosures</h3>
+        <p>Code-compliant safety fencing for pools</p>
+      </div>
+      <div class="use-card">
+        <img src="/images/img_2119-640w-1920w.webp" alt="Commercial gate" loading="lazy" />
+        <h3>Commercial</h3>
+        <p>Secure access for businesses and facilities</p>
+      </div>
+      <div class="use-card">
+        <img src="/images/img_2047-3bfaec41-640w-1920w.webp" alt="Hillside fence" loading="lazy" />
+        <h3>Hillsides</h3>
+        <p>Quick installation, even on inclines</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits as alternating rows -->
+  <section class="benefits section">
+    <div class="wrap">
+      <div class="benefit-row reveal">
+        <span class="benefit-icon">&#9670;</span>
         <div>
-          <h2 class="mb-6">What Are Aluminum Fences?</h2>
-          <p class="text-foreground/70 leading-relaxed mb-4">
-            Affordable Fence & Railing provides aluminum fence installations for residential and commercial properties. Aluminum fencing is a durable, low-maintenance type of fence that is available in various styles, and we are proud to offer the best selection of aluminum fences in town. Unlike traditional iron fences, aluminum fences do not corrode over time. You can customize your fence by specifying the color, height, and finish.
-          </p>
-          <p class="text-foreground/70 leading-relaxed mb-4">
-            Aluminum fences are typically used to keep unwanted visitors out of an area while not completely concealing the area. The average aluminum fence comprises dark vertical bars with space in between. These fences are comparatively affordable, versatile, and low maintenance. They are a great choice for anyone that wants to protect their property.
-          </p>
-          <p class="text-foreground/70 leading-relaxed mb-4">
-            You have probably seen an aluminum fence surrounding a public pool or golf course. Aluminum fences are a common choice for properties meant to entice rather than discourage visitors. Due to their resilient nature, these fences require fewer repairs and less maintenance than other fences.
-          </p>
-          <p class="text-foreground/70 leading-relaxed">
-            Affordable Fence & Railing is a trusted provider of fencing materials, which allows you to undergo DIY projects with confidence. We also perform aluminum fencing installations for whatever project you may need. If you want to be confident that your fence was installed professionally and reliably, ask us about our installation services.
-          </p>
+          <h3>Corrosion Resistant</h3>
+          <p>Unlike iron, aluminum won't rust. Built to last through Pittsburgh's rain, snow, and humidity.</p>
         </div>
-
-        <div class="space-y-6">
-          <img
-            src="/images/gettyimages-1139142927-1920w.jpg"
-            alt="Aluminum Fence in Pittsburgh, PA"
-            class="rounded-lg w-full"
-            loading="lazy"
-          />
-          <img
-            src="/images/img_2036-640w-1920w.webp"
-            alt="Aluminum Fence Around Pool"
-            class="rounded-lg w-full"
-            loading="lazy"
-          />
+      </div>
+      <div class="benefit-row reveal">
+        <span class="benefit-icon">&#9670;</span>
+        <div>
+          <h3>Customizable</h3>
+          <p>Choose your preferred color, height, and finish to match your property.</p>
+        </div>
+      </div>
+      <div class="benefit-row reveal">
+        <span class="benefit-icon">&#9670;</span>
+        <div>
+          <h3>Low Maintenance</h3>
+          <p>No painting, no staining. Fewer repairs than other fence types over its lifetime.</p>
+        </div>
+      </div>
+      <div class="benefit-row reveal">
+        <span class="benefit-icon">&#9670;</span>
+        <div>
+          <h3>Adds Property Value</h3>
+          <p>An attractive deterrent to trespassing that defines property lines and adds curb appeal.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Benefits -->
-  <section class="bg-muted py-20 md:py-24">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <div class="max-w-xl mb-14">
-        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-2">Benefits</p>
-        <h2>Why Choose Aluminum Fence</h2>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {benefits.map((benefit, i) => (
-          <div class="flex gap-4">
-            <span class="text-3xl font-display font-bold text-primary/20 leading-none">{String(i + 1).padStart(2, '0')}</span>
-            <div>
-              <h3 class="text-base mb-2">{benefit.title}</h3>
-              <p class="text-muted-foreground text-sm leading-relaxed">{benefit.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery Row -->
-  <section class="py-20 md:py-24">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <img src="/images/505-640w-1920w.webp" alt="Black Painted Aluminum Fence" class="rounded-lg w-full h-64 object-cover" loading="lazy" />
-        <img src="/images/img_2047-640w-1920w.webp" alt="Fence Made of Steel" class="rounded-lg w-full h-64 object-cover" loading="lazy" />
-        <img src="/images/img_2119-640w-1920w.webp" alt="Black Fence and Gate of a House" class="rounded-lg w-full h-64 object-cover" loading="lazy" />
-      </div>
-    </div>
+  <!-- Gallery strip -->
+  <section class="gallery-strip">
+    <img src="/images/505-640w-1920w.webp" alt="Black aluminum fence" loading="lazy" />
+    <img src="/images/img_2047-640w-1920w.webp" alt="Aluminum fence on wall" loading="lazy" />
+    <img src="/images/img_2119-640w-1920w.webp" alt="Black aluminum gate" loading="lazy" />
+    <img src="/images/img_2030-640w-1920w.webp" alt="Aluminum picket fence" loading="lazy" />
   </section>
 
   <!-- CTA -->
-  <section class="bg-primary/5 py-20 md:py-24">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12 text-center">
-      <h2 class="mb-4">Get an Aluminum Fence Quote</h2>
-      <p class="text-muted-foreground max-w-xl mx-auto mb-8">
-        Find more information on our aluminum fence installation and fabrication service when you call our team in Pittsburgh, PA, for a free estimate.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact" class="inline-flex items-center justify-center px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-full text-sm">
-          Request a Free Estimate
-        </a>
-        <a href="tel:412-766-1464" class="inline-flex items-center justify-center px-8 py-3.5 border-2 border-primary/30 text-primary font-semibold rounded-full text-sm">
-          Call 412-766-1464
-        </a>
+  <section class="cta section">
+    <div class="wrap cta-inner">
+      <h2>Get an Aluminum Fence Quote</h2>
+      <p>Call our team in Pittsburgh, PA, for a free estimate on aluminum fence installation and fabrication.</p>
+      <div class="cta-buttons">
+        <a href="/contact" class="btn btn-primary">Request a Free Estimate</a>
+        <a href="tel:412-766-1464" class="btn btn-outline-dark">Call 412-766-1464</a>
       </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  /* Dark cinematic hero */
+  .hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      oklch(0.14 0.005 260 / 0.92) 0%,
+      oklch(0.14 0.005 260 / 0.6) 50%,
+      oklch(0.14 0.005 260 / 0.3) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    padding-block: 4rem;
+    max-width: 650px;
+  }
+
+  .label {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--amber);
+    margin-bottom: 0.75rem;
+  }
+
+  .hero h1 {
+    color: var(--white);
+    margin-bottom: var(--space-md);
+  }
+
+  .hero p {
+    color: oklch(1 0 0 / 0.7);
+    max-width: 45ch;
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  /* Content grid */
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  @media (min-width: 768px) {
+    .content-grid { grid-template-columns: 3fr 2fr; }
+  }
+
+  .content-text h2 { margin-bottom: var(--space-md); }
+
+  .lead {
+    font-size: 1.1rem;
+    color: var(--iron);
+  }
+
+  .content-text p { color: var(--steel); }
+
+  .content-photos {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .content-photos img {
+    width: 100%;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+
+  .photo-tall { aspect-ratio: 4 / 5; }
+  .photo-short { aspect-ratio: 16 / 9; }
+
+  /* Use cases — horizontal scroll */
+  .uses h2 {
+    margin-bottom: var(--space-lg);
+  }
+
+  .uses-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    overflow-x: auto;
+  }
+
+  @media (max-width: 767px) {
+    .uses-strip {
+      grid-template-columns: repeat(4, 75vw);
+      scroll-snap-type: x mandatory;
+      padding-inline: var(--gutter);
+    }
+  }
+
+  .use-card {
+    background: var(--charcoal);
+    scroll-snap-align: start;
+    overflow: hidden;
+  }
+
+  .use-card img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+  }
+
+  .use-card:hover img { opacity: 1; }
+
+  .use-card h3 {
+    color: var(--white);
+    font-size: 1rem;
+    padding: 1rem 1.25rem 0.25rem;
+  }
+
+  .use-card p {
+    color: var(--silver);
+    font-size: 0.8125rem;
+    padding: 0 1.25rem 1.25rem;
+  }
+
+  /* Benefits */
+  .benefits {
+    background: var(--cream-dark);
+  }
+
+  .benefit-row {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid oklch(0 0 0 / 0.06);
+  }
+
+  .benefit-row:last-child { border-bottom: none; }
+
+  .benefit-icon {
+    color: var(--teal);
+    font-size: 0.875rem;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+  }
+
+  .benefit-row h3 { margin-bottom: 0.25rem; }
+  .benefit-row p { color: var(--steel); font-size: 0.9375rem; }
+
+  /* Gallery strip */
+  .gallery-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+
+  @media (max-width: 639px) {
+    .gallery-strip { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .gallery-strip img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  /* CTA */
+  .cta { text-align: center; }
+  .cta-inner { max-width: 600px; }
+  .cta h2 { margin-bottom: 0.75rem; }
+  .cta p { color: var(--steel); margin-bottom: var(--space-lg); }
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+</style>

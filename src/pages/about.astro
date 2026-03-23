@@ -4,131 +4,446 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout
   title="About Us - Affordable Fence & Railing, LLC"
-  description="Locally owned fence and railing company serving Pittsburgh and surrounding counties for over 30 years. Fully licensed and insured. Specializing in vinyl, aluminum, and chain link fence installation."
+  description="Locally owned fence and railing company serving Pittsburgh and surrounding counties for over 30 years. Fully licensed and insured."
 >
-  <!-- Hero -->
-  <section class="bg-muted py-20 md:py-28">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <div class="max-w-2xl">
-        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-3">About Us</p>
-        <h1>Trusted Fence & Railing Installer in Pittsburgh, PA</h1>
+  <!-- Page hero — full-width photo with overlay text -->
+  <section class="hero">
+    <img src="/images/175545195-1920w.jpg" alt="" class="hero-bg" loading="eager" fetchpriority="high" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content wrap">
+      <span class="hero-label">About Us</span>
+      <h1>Building Fences in Pittsburgh Since 1993</h1>
+    </div>
+  </section>
+
+  <!-- Story section — asymmetric layout -->
+  <section class="story section">
+    <div class="wrap story-grid">
+      <div class="story-main">
+        <h2 class="reveal">Our Story</h2>
+        <p class="story-lead reveal">
+          Affordable Fence & Railing is a locally owned, full-service fence and railing company that has served Pittsburgh and five surrounding counties for over 30 years.
+        </p>
+        <p class="reveal">
+          We are fully licensed and insured, so rest easy knowing that your property is in safe, capable hands. Our mission is to provide you with great products at very affordable prices, and we pride ourselves on the fabrication of quality vinyl and aluminum fence material.
+        </p>
+        <p class="reveal">
+          We install fencing of various types, including aluminum, vinyl, and chain link. Every project is completed safely and within the guidelines established by local building codes, so your new fence or railing will look great on your property without violating any regulations.
+        </p>
+
+        <div class="credentials reveal">
+          <div class="credential">
+            <span class="credential-number">30+</span>
+            <span class="credential-label">Years in Business</span>
+          </div>
+          <div class="credential">
+            <span class="credential-number">5</span>
+            <span class="credential-label">Counties Served</span>
+          </div>
+          <div class="credential">
+            <span class="credential-number">3</span>
+            <span class="credential-label">Fence Materials</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="story-sidebar reveal">
+        <img src="/images/img_2049-640w-1920w.webp" alt="White vinyl picket fence installed by Affordable Fence" class="sidebar-photo" />
+
+        <div class="info-card">
+          <h3>Business Details</h3>
+          <dl class="info-list">
+            <div>
+              <dt>Phone</dt>
+              <dd><a href="tel:412-766-1464">412-766-1464</a></dd>
+            </div>
+            <div>
+              <dt>Email</dt>
+              <dd><a href="mailto:carol@affordable-fences.com">carol@affordable-fences.com</a></dd>
+            </div>
+            <div>
+              <dt>Fax</dt>
+              <dd>412-230-8654</dd>
+            </div>
+            <div>
+              <dt>Address</dt>
+              <dd>309 Camp Horne Road<br />Pittsburgh, PA 15202</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="extras-card">
+          <h3>We Also Offer</h3>
+          <ul>
+            <li>DIY vinyl & aluminum fence materials for sale</li>
+            <li>Custom fence fabrication</li>
+            <li>VEKA vinyl decking</li>
+            <li>Financing for installation</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- What we install -->
+  <section class="install-section section">
+    <div class="wrap">
+      <h2 class="reveal">What We Install</h2>
+      <p class="install-intro reveal">We provide tailored fencing and railing for your home's unique needs.</p>
+
+      <div class="install-grid">
+        <a href="/vinyl-fences" class="install-card reveal">
+          <img src="/images/img_2041-640w-1920w.webp" alt="Vinyl fence installation" />
+          <div class="install-card-content">
+            <h3>Vinyl Fences</h3>
+            <p>Picket and privacy styles, five times stronger than wood.</p>
+          </div>
+        </a>
+        <a href="/aluminum-fences" class="install-card reveal">
+          <img src="/images/505-640w-1920w.webp" alt="Aluminum fence installation" />
+          <div class="install-card-content">
+            <h3>Aluminum Fences</h3>
+            <p>Corrosion-resistant fencing for homes and businesses.</p>
+          </div>
+        </a>
+        <a href="/chain-link" class="install-card reveal">
+          <img src="/images/gettyimages-928863520-1920w.jpg" alt="Chain link fence" />
+          <div class="install-card-content">
+            <h3>Chain Link</h3>
+            <p>Galvanized and black vinyl-coated options.</p>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Main Content -->
-  <section class="py-20 md:py-24">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <div class="grid grid-cols-1 lg:grid-cols-5 gap-16">
-        <div class="lg:col-span-3">
-          <p class="text-lg text-foreground/80 leading-relaxed mb-6">
-            At Affordable Fence & Railing, we provide affordable residential fence installation and fabrication to meet your project's needs. We use only high-quality fence products to leave you with long-lasting results.
-          </p>
-          <p class="text-foreground/70 leading-relaxed mb-6">
-            Affordable Fence & Railing, LLC is a locally owned, full-service fence and railing company that has served Pittsburgh and nearby Allegheny, Butler, Beaver, Westmoreland, and Washington counties for over 30 years. We are fully licensed and insured, so rest easy knowing that your property is in safe, capable hands. Our mission is to provide you with great products at very affordable prices, and we pride ourselves on the fabrication of quality vinyl and aluminum fence material.
-          </p>
-          <p class="text-foreground/70 leading-relaxed mb-8">
-            Affordable Fence & Railing installs fencing of various types, including aluminum, vinyl, and chain link. We will complete your project safely, and within the guidelines established by local building codes, so your new fence or railing project will look great on your property without violating any regulations.
-          </p>
-
-          <div class="border-t border-border pt-8">
-            <h2 class="mb-6">What We Install</h2>
-            <p class="text-foreground/70 leading-relaxed mb-6">
-              We provide tailored fencing installation services and products to suit your home's unique needs. We install various styles of fences made of:
-            </p>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <a href="/vinyl-fences" class="group p-5 bg-muted rounded-lg border-t-2 border-primary/30 hover:border-primary">
-                <h3 class="text-base mb-1 group-hover:text-primary">Vinyl</h3>
-                <p class="text-muted-foreground text-sm">Picket & privacy styles</p>
-              </a>
-              <a href="/aluminum-fences" class="group p-5 bg-muted rounded-lg border-t-2 border-primary/30 hover:border-primary">
-                <h3 class="text-base mb-1 group-hover:text-primary">Aluminum</h3>
-                <p class="text-muted-foreground text-sm">Residential & commercial</p>
-              </a>
-              <a href="/chain-link" class="group p-5 bg-muted rounded-lg border-t-2 border-primary/30 hover:border-primary">
-                <h3 class="text-base mb-1 group-hover:text-primary">Chain Link</h3>
-                <p class="text-muted-foreground text-sm">Galvanized & vinyl-coated</p>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="lg:col-span-2">
-          <div class="sticky top-24">
-            <img
-              src="/images/img_2049-640w-1920w.webp"
-              alt="White Fence with Nice Design"
-              class="rounded-lg w-full mb-6"
-              loading="lazy"
-            />
-
-            <div class="bg-primary/5 rounded-lg p-6 mb-6">
-              <h3 class="text-base mb-4">Business Details</h3>
-              <div class="flex flex-col gap-3 text-sm">
-                <div class="flex justify-between">
-                  <span class="text-muted-foreground">Phone</span>
-                  <a href="tel:412-766-1464" class="font-medium text-primary">412-766-1464</a>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-muted-foreground">Email</span>
-                  <a href="mailto:carol@affordable-fences.com" class="font-medium text-primary">carol@affordable-fences.com</a>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-muted-foreground">Fax</span>
-                  <span class="font-medium">412-230-8654</span>
-                </div>
-                <div class="border-t border-border pt-3 mt-1">
-                  <span class="text-muted-foreground">Address</span>
-                  <p class="font-medium mt-1">309 Camp Horne Road<br />Pittsburgh, PA 15202</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="bg-muted rounded-lg p-6">
-              <h3 class="text-base mb-3">Additional Services</h3>
-              <ul class="text-sm text-foreground/70 flex flex-col gap-2">
-                <li>DIY vinyl & aluminum fence materials for sale</li>
-                <li>Custom fence fabrication</li>
-                <li>VEKA vinyl decking</li>
-                <li>Financing available for installation</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Service Area -->
-  <section class="bg-muted py-20 md:py-24">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <h2 class="mb-6">Our Service Area</h2>
-      <p class="text-foreground/70 max-w-2xl leading-relaxed mb-8">
-        We serve homeowners across the greater Pittsburgh area, including Allegheny, Butler, Beaver, Westmoreland, and Washington counties.
-      </p>
-      <div class="flex flex-wrap gap-3">
-        {['Pittsburgh, PA', 'Sewickley, PA', 'Cranberry Township, PA', 'Moon Township, PA', 'Wexford, PA', 'Canonsburg, PA', 'Allegheny County', 'Butler County', 'Beaver County', 'Westmoreland County', 'Washington County'].map(area => (
-          <span class="px-4 py-2 bg-background border border-border rounded-full text-sm text-foreground/80">{area}</span>
+  <!-- Service area -->
+  <section class="area-section section">
+    <div class="wrap">
+      <h2 class="reveal">Our Service Area</h2>
+      <p class="reveal">We serve homeowners across the greater Pittsburgh area, including Allegheny, Butler, Beaver, Westmoreland, and Washington counties.</p>
+      <div class="area-tags reveal">
+        {['Pittsburgh', 'Sewickley', 'Cranberry Twp', 'Moon Twp', 'Wexford', 'Canonsburg', 'Allegheny County', 'Butler County', 'Beaver County', 'Westmoreland County', 'Washington County'].map(area => (
+          <span class="area-tag">{area}</span>
         ))}
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="py-20 md:py-24">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12 text-center">
-      <h2 class="mb-4">Ready to Get Started?</h2>
-      <p class="text-muted-foreground max-w-xl mx-auto mb-8">
-        Call our team today in Pittsburgh, PA, for a free estimate for all of your fence and railing needs.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact" class="inline-flex items-center justify-center px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-full text-sm">
-          Request a Free Estimate
-        </a>
-        <a href="tel:412-766-1464" class="inline-flex items-center justify-center px-8 py-3.5 border-2 border-primary/30 text-primary font-semibold rounded-full text-sm">
-          Call 412-766-1464
-        </a>
+  <section class="cta-section section">
+    <div class="wrap cta-inner">
+      <h2>Ready to Get Started?</h2>
+      <p>Call our team today for a free estimate on any fence or railing project.</p>
+      <div class="cta-buttons">
+        <a href="/contact" class="btn btn-primary">Request a Free Estimate</a>
+        <a href="tel:412-766-1464" class="btn btn-outline">Call 412-766-1464</a>
       </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  /* Hero with background photo */
+  .hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      oklch(0.14 0.005 260 / 0.9) 0%,
+      oklch(0.14 0.005 260 / 0.5) 60%,
+      oklch(0.14 0.005 260 / 0.2) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    padding-block: 4rem 3rem;
+    max-width: 700px;
+  }
+
+  .hero-label {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--amber);
+    margin-bottom: 0.75rem;
+  }
+
+  .hero h1 {
+    color: var(--white);
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+  }
+
+  /* Story grid */
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  @media (min-width: 768px) {
+    .story-grid {
+      grid-template-columns: 3fr 2fr;
+      gap: var(--space-2xl);
+    }
+  }
+
+  .story-main h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  .story-lead {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--iron);
+    margin-bottom: var(--space-sm);
+  }
+
+  .story-main p {
+    color: var(--steel);
+  }
+
+  .credentials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 2px solid var(--teal-pale);
+  }
+
+  .credential-number {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--teal);
+    line-height: 1;
+  }
+
+  .credential-label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--steel);
+    margin-top: 0.25rem;
+    display: block;
+  }
+
+  /* Sidebar */
+  .sidebar-photo {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: var(--space-md);
+  }
+
+  .info-card, .extras-card {
+    padding: var(--space-md);
+    border-radius: 6px;
+    margin-bottom: var(--space-sm);
+  }
+
+  .info-card {
+    background: var(--teal-pale);
+  }
+
+  .extras-card {
+    background: var(--cream-dark);
+  }
+
+  .info-card h3, .extras-card h3 {
+    font-size: 0.875rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .info-list div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .info-list dt {
+    color: var(--steel);
+    flex-shrink: 0;
+  }
+
+  .info-list dd {
+    text-align: right;
+    font-weight: 500;
+  }
+
+  .info-list a {
+    color: var(--teal);
+    &:hover { text-decoration: underline; }
+  }
+
+  .extras-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--steel);
+  }
+
+  .extras-card li::before {
+    content: '+ ';
+    color: var(--teal);
+    font-weight: 600;
+  }
+
+  /* Install section */
+  .install-section {
+    background: var(--charcoal);
+    color: var(--white);
+    background-image: var(--picket-pattern);
+  }
+
+  .install-section h2 {
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .install-intro {
+    color: var(--silver);
+    margin-bottom: var(--space-xl);
+    max-width: 40ch;
+  }
+
+  .install-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  @media (min-width: 640px) {
+    .install-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .install-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    aspect-ratio: 3 / 4;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .install-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s var(--ease-out);
+  }
+
+  .install-card:hover img {
+    transform: scale(1.05);
+  }
+
+  .install-card-content {
+    position: relative;
+    z-index: 1;
+    padding: var(--space-md);
+    background: linear-gradient(to top, oklch(0 0 0 / 0.8), transparent);
+    width: 100%;
+    padding-top: 4rem;
+  }
+
+  .install-card h3 {
+    color: var(--white);
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .install-card p {
+    color: oklch(1 0 0 / 0.7);
+    font-size: 0.875rem;
+  }
+
+  /* Area section */
+  .area-section {
+    background: var(--cream-dark);
+  }
+
+  .area-section h2 {
+    margin-bottom: 0.75rem;
+  }
+
+  .area-section > .wrap > p {
+    color: var(--steel);
+    max-width: 50ch;
+    margin-bottom: var(--space-lg);
+  }
+
+  .area-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .area-tag {
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    background: var(--white);
+    border: 1px solid oklch(0 0 0 / 0.06);
+    border-radius: 4px;
+    color: var(--iron);
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--teal);
+    color: var(--white);
+    text-align: center;
+  }
+
+  .cta-inner {
+    max-width: 600px;
+  }
+
+  .cta-section h2 {
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-section p {
+    color: oklch(1 0 0 / 0.75);
+    margin-bottom: var(--space-lg);
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+</style>

@@ -6,149 +6,128 @@ import Layout from '../layouts/Layout.astro';
   title="Contact Us - Affordable Fence & Railing, LLC"
   description="Contact Affordable Fence & Railing in Pittsburgh, PA for a free fence or railing estimate. Call 412-766-1464 or fill out our contact form."
 >
-  <!-- Hero -->
-  <section class="bg-muted py-20 md:py-28">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <div class="max-w-2xl">
-        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-3">Get in Touch</p>
-        <h1>Contact Us for a Free Estimate</h1>
-        <p class="text-foreground/70 text-lg mt-6 leading-relaxed">
-          Thank you for your interest in our fence and railing company. Contact Affordable Fence & Railing, LLC in Pittsburgh, PA, for any questions you may have or to receive your free estimate.
-        </p>
-      </div>
-    </div>
-  </section>
+  <!-- Split layout: dark info + light form -->
+  <section class="contact-hero">
+    <div class="contact-info">
+      <div class="info-inner">
+        <span class="label">Get in Touch</span>
+        <h1>Let's Talk About Your Project</h1>
+        <p class="intro">Contact us for any questions or to receive your free estimate. We serve Pittsburgh and five surrounding counties.</p>
 
-  <!-- Contact Info + Form -->
-  <section class="py-20 md:py-24">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <div class="grid grid-cols-1 lg:grid-cols-5 gap-16">
-        <!-- Contact Info -->
-        <div class="lg:col-span-2">
-          <h2 class="mb-8">Contact Information</h2>
+        <address class="details">
+          <div class="detail-group">
+            <h3>Phone</h3>
+            <a href="tel:412-766-1464" class="detail-value phone">412-766-1464</a>
+          </div>
 
-          <div class="space-y-6">
-            <div>
-              <p class="text-sm font-semibold text-foreground mb-1">Phone</p>
-              <a href="tel:412-766-1464" class="text-lg font-medium text-primary">412-766-1464</a>
-            </div>
+          <div class="detail-group">
+            <h3>Email</h3>
+            <a href="mailto:carol@affordable-fences.com" class="detail-link">carol@affordable-fences.com</a>
+          </div>
 
-            <div>
-              <p class="text-sm font-semibold text-foreground mb-1">Fax</p>
-              <p class="text-foreground/70">412-230-8654</p>
-            </div>
+          <div class="detail-group">
+            <h3>Fax</h3>
+            <span class="detail-text">412-230-8654</span>
+          </div>
 
-            <div>
-              <p class="text-sm font-semibold text-foreground mb-1">Email</p>
-              <a href="mailto:carol@affordable-fences.com" class="text-primary">carol@affordable-fences.com</a>
-            </div>
+          <div class="detail-group">
+            <h3>Address</h3>
+            <span class="detail-text">309 Camp Horne Road<br />Pittsburgh, PA 15202</span>
+          </div>
 
-            <div>
-              <p class="text-sm font-semibold text-foreground mb-1">Address</p>
-              <p class="text-foreground/70">309 Camp Horne Road<br />Pittsburgh, PA 15202</p>
-            </div>
-
-            <div class="border-t border-border pt-6">
-              <p class="text-sm font-semibold text-foreground mb-3">Business Hours</p>
-              <div class="space-y-1 text-sm text-foreground/70">
-                <div class="flex justify-between">
-                  <span>Monday - Friday</span>
-                  <span class="font-medium text-foreground">9:00 AM - 4:30 PM</span>
-                </div>
-                <div class="flex justify-between">
-                  <span>Saturday</span>
-                  <span>Closed</span>
-                </div>
-                <div class="flex justify-between">
-                  <span>Sunday</span>
-                  <span>Closed</span>
-                </div>
+          <div class="detail-group">
+            <h3>Hours</h3>
+            <div class="hours">
+              <div class="hours-row">
+                <span>Monday - Friday</span>
+                <span class="hours-value">9:00 AM - 4:30 PM</span>
               </div>
-            </div>
-
-            <div class="border-t border-border pt-6">
-              <p class="text-sm font-semibold text-foreground mb-3">Payment Methods</p>
-              <div class="flex flex-wrap gap-2">
-                {['Visa', 'MasterCard', 'American Express', 'Discover', 'Cash', 'Check'].map(method => (
-                  <span class="px-3 py-1.5 bg-muted text-sm text-foreground/70 rounded-md">{method}</span>
-                ))}
-              </div>
-              <p class="text-xs text-muted-foreground mt-3">Financing available for installation services.</p>
-            </div>
-
-            <div class="border-t border-border pt-6">
-              <p class="text-sm font-semibold text-foreground mb-3">Follow Us</p>
-              <div class="flex gap-4">
-                <a href="https://facebook.com/Affordable-Fence-Railing-LLC-600448523453587" class="text-foreground/60 hover:text-primary" aria-label="Facebook">
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                </a>
-                <a href="https://www.instagram.com/afc_pgh_pa/" class="text-foreground/60 hover:text-primary" aria-label="Instagram">
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                </a>
+              <div class="hours-row">
+                <span>Saturday - Sunday</span>
+                <span>Closed</span>
               </div>
             </div>
           </div>
+        </address>
+
+        <div class="payment-section">
+          <h3>Payment Methods</h3>
+          <div class="payment-tags">
+            {['Visa', 'MasterCard', 'Amex', 'Discover', 'Cash', 'Check'].map(m => (
+              <span class="payment-tag">{m}</span>
+            ))}
+          </div>
+          <p class="financing-note">Financing available for installation services.</p>
         </div>
 
-        <!-- Contact Form -->
-        <div class="lg:col-span-3">
-          <div class="bg-muted rounded-xl p-8 md:p-10">
-            <h2 class="mb-2">Send Us a Message</h2>
-            <p class="text-muted-foreground text-sm mb-8">Fill out the form below and we will get back to you as soon as possible.</p>
+        <div class="social-section">
+          <a href="https://facebook.com/Affordable-Fence-Railing-LLC-600448523453587" aria-label="Facebook" class="social-link">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <a href="https://www.instagram.com/afc_pgh_pa/" aria-label="Instagram" class="social-link">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            Instagram
+          </a>
+        </div>
+      </div>
+    </div>
 
-            <form id="contact-form" class="space-y-5">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                  <label for="name" class="block text-sm font-medium mb-2">Name</label>
-                  <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary" />
-                </div>
-                <div>
-                  <label for="phone" class="block text-sm font-medium mb-2">Phone</label>
-                  <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary" />
-                </div>
-              </div>
-              <div>
-                <label for="email" class="block text-sm font-medium mb-2">Email</label>
-                <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary" />
-              </div>
-              <div>
-                <label for="message" class="block text-sm font-medium mb-2">Message</label>
-                <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-background border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary resize-none"></textarea>
-              </div>
-              <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-full text-sm">
-                Send Message
-              </button>
-            </form>
+    <div class="contact-form-area">
+      <div class="form-inner">
+        <h2>Send Us a Message</h2>
+        <p class="form-subtitle">Fill out the form below and we'll get back to you soon.</p>
 
-            <div id="form-success" class="hidden py-12 text-center">
-              <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <svg class="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              </div>
-              <h3 class="mb-2">Message Sent</h3>
-              <p class="text-muted-foreground text-sm">Thanks for reaching out! We'll get back to you soon.</p>
+        <form id="contact-form" action="https://api.keithkelly.dev/contact" method="POST">
+          <input type="hidden" name="siteToken" value="affordable-fences" />
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" />
             </div>
           </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+        </form>
+
+        <div id="form-success" style="display:none" class="success-msg">
+          <div class="success-icon">
+            <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <h3>Message Sent</h3>
+          <p>Thanks for reaching out! We'll get back to you soon.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Map -->
-  <section class="py-12 md:py-16">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-12">
-      <h2 class="mb-6">Our Location</h2>
-      <p class="text-foreground/70 mb-6">309 Camp Horne Road, Pittsburgh, PA 15202</p>
-      <iframe
-        title="Affordable Fence & Railing, LLC location on Google Maps"
-        src="https://www.google.com/maps?q=309+Camp+Horne+Road%2C+Pittsburgh+PA+15202&output=embed"
-        width="100%"
-        height="400"
-        style="border: 0; border-radius: 8px;"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        allowfullscreen
-      ></iframe>
+  <section class="map-section">
+    <div class="wrap">
+      <h2>Our Location</h2>
+      <p class="map-address">309 Camp Horne Road, Pittsburgh, PA 15202</p>
     </div>
+    <iframe
+      title="Affordable Fence & Railing, LLC location on Google Maps"
+      src="https://www.google.com/maps?q=309+Camp+Horne+Road%2C+Pittsburgh+PA+15202&output=embed"
+      width="100%"
+      height="400"
+      style="border: 0;"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen
+    ></iframe>
   </section>
 
   <script>
@@ -166,8 +145,240 @@ import Layout from '../layouts/Layout.astro';
       } catch {
         // Show success regardless
       }
-      form.classList.add('hidden');
-      success?.classList.remove('hidden');
+      form.style.display = 'none';
+      success!.style.display = 'block';
     });
   </script>
 </Layout>
+
+<style>
+  /* Split layout */
+  .contact-hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 80vh;
+  }
+
+  @media (min-width: 768px) {
+    .contact-hero {
+      grid-template-columns: 2fr 3fr;
+    }
+  }
+
+  /* Left: dark info panel */
+  .contact-info {
+    background: var(--charcoal);
+    background-image: var(--picket-pattern);
+    padding: var(--space-xl) var(--gutter);
+  }
+
+  .info-inner {
+    max-width: 400px;
+  }
+
+  @media (min-width: 768px) {
+    .info-inner { margin-left: auto; padding-right: var(--space-md); }
+  }
+
+  .label {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--amber);
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-info h1 {
+    color: var(--white);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    margin-bottom: var(--space-md);
+  }
+
+  .intro {
+    color: var(--silver);
+    margin-bottom: var(--space-xl);
+    font-size: 0.9375rem;
+  }
+
+  .details {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+
+  .detail-group h3 {
+    color: oklch(1 0 0 / 0.55);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+  }
+
+  .detail-value { color: var(--white); font-size: 0.9375rem; }
+  .phone { font-size: 1.125rem; font-weight: 600; }
+  .detail-link {
+    color: var(--amber);
+    font-size: 0.9375rem;
+    &:hover { text-decoration: underline; }
+  }
+  .detail-text { color: oklch(1 0 0 / 0.7); font-size: 0.9375rem; }
+
+  .hours { display: flex; flex-direction: column; gap: 0.25rem; }
+  .hours-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8125rem;
+    color: oklch(1 0 0 / 0.6);
+  }
+  .hours-value { font-weight: 600; color: oklch(1 0 0 / 0.8); }
+
+  .payment-section {
+    padding-top: var(--space-md);
+    border-top: 1px solid oklch(1 0 0 / 0.08);
+    margin-bottom: var(--space-lg);
+  }
+
+  .payment-section h3 {
+    color: oklch(1 0 0 / 0.55);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .payment-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .payment-tag {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: oklch(1 0 0 / 0.06);
+    color: oklch(1 0 0 / 0.6);
+    border-radius: 3px;
+  }
+
+  .financing-note {
+    font-size: 0.75rem;
+    color: oklch(1 0 0 / 0.55);
+    margin-top: 0.5rem;
+  }
+
+  .social-section {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: oklch(1 0 0 / 0.5);
+    transition: color 0.2s;
+    &:hover { color: var(--white); }
+  }
+
+  /* Right: form */
+  .contact-form-area {
+    padding: var(--space-xl) var(--gutter);
+    display: flex;
+    align-items: center;
+  }
+
+  .form-inner {
+    max-width: 540px;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .form-inner { margin-right: auto; padding-left: var(--space-lg); }
+  }
+
+  .form-inner h2 { margin-bottom: 0.25rem; }
+  .form-subtitle { color: var(--steel); font-size: 0.9375rem; margin-bottom: var(--space-lg); }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  @media (min-width: 480px) {
+    .form-row { grid-template-columns: 1fr 1fr; }
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--iron);
+  }
+
+  input, textarea {
+    padding: 0.75rem 1rem;
+    border: 1px solid oklch(0 0 0 / 0.1);
+    border-radius: 4px;
+    background: var(--cream);
+    font-size: 0.9375rem;
+    color: var(--charcoal);
+    transition: border-color 0.2s;
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px oklch(0.35 0.09 225 / 0.1);
+  }
+
+  textarea { resize: vertical; }
+
+  .submit-btn { align-self: flex-start; }
+
+  /* Success state */
+  .success-msg {
+    text-align: center;
+    padding: var(--space-2xl) 0;
+  }
+
+  .success-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--teal-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-md);
+    color: var(--teal);
+  }
+
+  .success-msg h3 { margin-bottom: 0.5rem; }
+  .success-msg p { color: var(--steel); }
+
+  /* Map */
+  .map-section {
+    padding-top: var(--space-xl);
+  }
+
+  .map-section h2 { margin-bottom: 0.25rem; }
+  .map-address { color: var(--steel); margin-bottom: var(--space-md); font-size: 0.9375rem; }
+</style>
