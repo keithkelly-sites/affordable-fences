@@ -58,6 +58,9 @@ const fencingActive = fencingLinks.some(l => isActive(l.href));
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="canonical" href={Astro.url.href} />
   {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
   <ClientRouter />
   <script async src="https://api.keithkelly.dev/d/s"></script>
   <script is:inline>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init({endpoint:"https://api.keithkelly.dev/d/e"})</script>

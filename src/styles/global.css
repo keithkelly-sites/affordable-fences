@@ -43,8 +43,9 @@
   --amber: oklch(0.78 0.14 65);
   --amber-hover: oklch(0.72 0.15 60);
 
-  /* Typography — CSS variables injected by Astro fonts API */
-  /* --font-display and --font-body are set in astro.config.mjs */
+  /* Typography — variables set by Astro fonts API, with fallbacks */
+  --font-display: 'Big Shoulders', 'Big Shoulders Display', system-ui, sans-serif;
+  --font-body: 'Figtree', system-ui, sans-serif;
 
   /* Spacing scale */
   --space-xs: 0.5rem;
